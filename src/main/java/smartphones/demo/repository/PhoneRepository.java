@@ -10,6 +10,6 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
 
 
     List<Phone> findAllByPhoneDetails_IsFlagship(boolean isFlagship);
-
+    List<Phone> findAllByPhoneDetails_IsExFlagship(boolean isExFlagship);
 
 }

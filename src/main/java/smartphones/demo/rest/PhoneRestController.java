@@ -21,15 +21,10 @@ import java.util.List;
 public class PhoneRestController {
 
     private final PhoneService phoneService;
-    // todo do usuniecia
-    private final PhoneRepository phoneRepository;
-    private final PhoneDetailsRepository phoneDetailsRepository;
 
     @Autowired
-    public PhoneRestController(PhoneService phoneService,PhoneRepository phoneRepository,PhoneDetailsRepository phoneDetailsRepository) {
+    public PhoneRestController(PhoneService phoneService) {
         this.phoneService = phoneService;
-        this.phoneRepository = phoneRepository;
-        this.phoneDetailsRepository=phoneDetailsRepository;
     }
 
 
@@ -51,7 +46,6 @@ public class PhoneRestController {
     @RequestMapping(path = "flagships" , method = RequestMethod.GET)
     public String flagShips(){
 
-
         List<Phone> phoneList = phoneService.getAllFlagShips();
         ObjectMapper mapper = new ObjectMapper();
 
@@ -61,6 +55,19 @@ public class PhoneRestController {
             return "{'error': 'Parse problem'}" + e;
         }
 
+    }
+
+    @RequestMapping(path = "exflagships" , method = RequestMethod.GET)
+    public String exFlagships(){
+
+        List<Phone> phoneList = phoneService.getAllExFlagships();
+        ObjectMapper mapper = new ObjectMapper();
+
+        try{
+            return mapper.writeValueAsString(phoneList);
+        }catch(Exception e){
+            return "{'error': 'Parse problem'}" + e;
+        }
     }
 
 

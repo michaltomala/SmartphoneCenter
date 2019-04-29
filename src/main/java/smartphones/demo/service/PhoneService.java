@@ -20,7 +20,9 @@ public class PhoneService {
 
 
     public List<Phone> getAllPhones(){ return phoneRepository.findAll(); }
-//    public List<Phone> getAllFlagShips() { return phoneRepository.findAll(); }
     public List<Phone> getAllFlagShips() { return phoneRepository.findAllByPhoneDetails_IsFlagship(true); }
+    public List<Phone> getAllExFlagships(){ return phoneRepository.findAllByPhoneDetails_IsExFlagship(true); }
+
+
 
 }
