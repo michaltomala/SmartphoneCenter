@@ -1,6 +1,7 @@
 package smartphones.demo.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +13,12 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @NotEmpty
     @Column(unique = true)
     private String name;
 
 
+    @OneToMany(mappedBy = "brand")
     private List<Phone> phones = new ArrayList<>();
 
 

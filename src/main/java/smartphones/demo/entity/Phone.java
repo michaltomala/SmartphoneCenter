@@ -28,6 +28,10 @@ public class Phone {
     @JsonBackReference
     private PhoneDetails phoneDetails;
 
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
     public Phone() {
     }
@@ -62,5 +66,13 @@ public class Phone {
 
     public void setPhoneDetails(PhoneDetails phoneDetails) {
         this.phoneDetails = phoneDetails;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 }
