@@ -1,18 +1,12 @@
 package smartphones.demo.rest;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import smartphones.demo.entity.Phone;
-import smartphones.demo.entity.PhoneDetails;
-import smartphones.demo.repository.PhoneDetailsRepository;
-import smartphones.demo.repository.PhoneRepository;
 import smartphones.demo.service.PhoneService;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
