@@ -19,8 +19,8 @@ public class PhoneService {
     }
 
 
-    public List<Phone> getAllPhones(){
-        return phoneRepository.findAll();
-    }
+    public List<Phone> getAllPhones(){ return phoneRepository.findAll(); }
+//    public List<Phone> getAllFlagShips() { return phoneRepository.findAll(); }
+    public List<Phone> getAllFlagShips() { return phoneRepository.findAllByPhoneDetails_IsFlagship(true); }
 
 }

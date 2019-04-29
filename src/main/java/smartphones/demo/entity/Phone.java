@@ -1,8 +1,7 @@
 package smartphones.demo.entity;
 
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -10,9 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 
-@Data
 @Entity
-@NoArgsConstructor
 public class Phone {
 
     @Id
@@ -27,9 +24,43 @@ public class Phone {
     @Min(value = 100)
     private int price;
 
-    @NotNull
-    @OneToOne
+    @OneToOne(optional = false , cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private PhoneDetails phoneDetails;
 
 
+    public Phone() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public PhoneDetails getPhoneDetails() {
+        return phoneDetails;
+    }
+
+    public void setPhoneDetails(PhoneDetails phoneDetails) {
+        this.phoneDetails = phoneDetails;
+    }
 }
