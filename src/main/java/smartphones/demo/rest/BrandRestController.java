@@ -2,11 +2,9 @@ package smartphones.demo.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import smartphones.demo.entity.Brand;
 import smartphones.demo.entity.Phone;
-import smartphones.demo.repository.BrandRepository;
 import smartphones.demo.service.BrandService;
 
 import java.util.List;
