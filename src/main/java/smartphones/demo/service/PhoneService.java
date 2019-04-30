@@ -2,9 +2,7 @@ package smartphones.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import smartphones.demo.entity.Brand;
 import smartphones.demo.entity.Phone;
-import smartphones.demo.repository.BrandRepository;
 import smartphones.demo.repository.PhoneRepository;
 
 import java.util.List;
