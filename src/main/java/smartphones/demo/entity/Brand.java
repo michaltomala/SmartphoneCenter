@@ -1,5 +1,7 @@
 package smartphones.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ public class Brand {
 
 
     @OneToMany(mappedBy = "brand" , fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Phone> phones = new ArrayList<>();
 
 

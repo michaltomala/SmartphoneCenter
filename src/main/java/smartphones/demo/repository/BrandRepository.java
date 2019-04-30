@@ -10,5 +10,5 @@ import java.util.List;
 public interface BrandRepository extends JpaRepository<Brand, Long> {
 
     List<Brand> findAllByOrderByNameAsc();
-
+    Brand findFirstByName(String name);
 }

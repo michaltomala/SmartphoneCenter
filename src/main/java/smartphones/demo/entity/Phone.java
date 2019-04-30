@@ -31,6 +31,7 @@ public class Phone {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "brand_id")
+    @JsonBackReference
     private Brand brand;
 
     public Phone() {
