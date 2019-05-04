@@ -74,11 +74,11 @@ public class PhoneRestController {
     @RequestMapping(path = "{brand}/{phone}" , method = RequestMethod.GET)
     public String findPhonePrice(@PathVariable String brand , @PathVariable String phone){
 
-        int price = webSearchService.findPhonePrice(phone);
+        Phone phoneToReturn  = webSearchService.setAndReturnActualPhonePrice(phone);
         ObjectMapper mapper = new ObjectMapper();
 
         try{
-            return mapper.writeValueAsString(price);
+            return mapper.writeValueAsString(phoneToReturn);
         }catch(Exception e){
             return "{'error': 'Parse problem'}" + e;
         }

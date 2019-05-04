@@ -24,6 +24,6 @@ public class PhoneService {
     public List<Phone> getAllFlagShips() { return phoneRepository.findAllByPhoneDetails_IsFlagship(true); }
     public List<Phone> getAllExFlagships(){ return phoneRepository.findAllByPhoneDetails_IsExFlagship(true); }
 
-
+    public void savePhone(Phone phone) { phoneRepository.save(phone); }
 
 }
