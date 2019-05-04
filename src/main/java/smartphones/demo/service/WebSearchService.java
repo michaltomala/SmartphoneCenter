@@ -70,6 +70,33 @@ public class WebSearchService {
     }
 
 
+    public List<Article> findSectionInShortFromKomorkomania(){
+        Connection connect = Jsoup.connect("https://komorkomania.pl/");
+        List<Article> articleList = new ArrayList<>();
+
+        try {
+            Document document = connect.get();
+            Elements links = document.getElementsByTag("ol");
+            for (Element elem : links) {
+                Elements elemChild = elem.children();
+                for(Element e : elemChild){
+                    Article article = new Article();
+                    article.setHeader(e.text());
+                    article.setUrl(e.child(0).attr("href"));
+                    articleList.add(article);
+                    if(articleList.size()==15) break;
+                }
+                if(articleList.size()==15) break;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return articleList;
+
+    }
+
 
 
 

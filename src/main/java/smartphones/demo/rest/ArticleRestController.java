@@ -37,7 +37,18 @@ public class ArticleRestController {
         }
     }
 
+    @RequestMapping(path = "komorkomania/section",method = RequestMethod.GET)
+    public String findSectionInShortFromKomorkomania(){
 
+        List<Article> articles = webSearchService.findSectionInShortFromKomorkomania();
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            return mapper.writeValueAsString(articles);
+        }catch (Exception e){
+            return "{'error': 'Parse problem'}" + e;
+        }
+    }
 
 
 //  todo add for single article
