@@ -24,6 +24,8 @@ public class Phone {
     @Min(value = 100)
     private int price;
 
+    // todo - link to ceneo
+
     @OneToOne(optional = false , cascade = CascadeType.REMOVE)
     @JsonBackReference
     private PhoneDetails phoneDetails;

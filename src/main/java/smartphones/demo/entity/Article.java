@@ -17,7 +17,6 @@ public class Article {
     @NotEmpty
     private String url;
 
-    @NotEmpty
     private String image;
 
 
