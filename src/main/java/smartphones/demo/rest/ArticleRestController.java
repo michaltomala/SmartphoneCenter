@@ -51,6 +51,20 @@ public class ArticleRestController {
     }
 
 
+    @RequestMapping(path = "tabletowo",method = RequestMethod.GET)
+    public String findArticlesFromTabletowo(){
+
+        List<Article> articles = webSearchService.findArticlesFromTabletowo();
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            return mapper.writeValueAsString(articles);
+        }catch (Exception e){
+            return "{'error': 'Parse problem'}" + e;
+        }
+    }
+
+
 //  todo add for single article
 
 }

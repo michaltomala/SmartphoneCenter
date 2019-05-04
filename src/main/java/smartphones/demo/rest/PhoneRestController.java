@@ -2,11 +2,14 @@ package smartphones.demo.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import smartphones.demo.entity.Phone;
 import smartphones.demo.service.PhoneService;
+import smartphones.demo.service.WebSearchService;
+
 import java.util.List;
 
 
@@ -15,10 +18,13 @@ import java.util.List;
 public class PhoneRestController {
 
     private final PhoneService phoneService;
+    private final WebSearchService webSearchService;
 
     @Autowired
-    public PhoneRestController(PhoneService phoneService) {
+    public PhoneRestController(PhoneService phoneService,WebSearchService webSearchService) {
+
         this.phoneService = phoneService;
+        this.webSearchService = webSearchService;
     }
 
 
@@ -62,6 +68,23 @@ public class PhoneRestController {
         }catch(Exception e){
             return "{'error': 'Parse problem'}" + e;
         }
+    }
+
+
+    @RequestMapping(path = "{brand}/{phone}" , method = RequestMethod.GET)
+    public String findPhonePrice(@PathVariable String brand , @PathVariable String phone){
+
+        int price = webSearchService.findPhonePrice(phone);
+        ObjectMapper mapper = new ObjectMapper();
+
+        try{
+            return mapper.writeValueAsString(price);
+        }catch(Exception e){
+            return "{'error': 'Parse problem'}" + e;
+        }
+
+
+
     }
 
 
