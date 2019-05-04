@@ -126,5 +126,35 @@ public class WebSearchService {
     }
 
 
+    public List<Article> findArticlesFromTabletowo(){
+        Connection connect = Jsoup.connect("https://www.tabletowo.pl/");
+        List<Article> articleList = new ArrayList<>();
+        try {
+
+            Document document = connect.get();
+            Elements divs = document.select("div.news clearfix");
+
+            for (Element elem : divs) {
+
+                Elements childElems = elem.children();
+
+//                Article article = new Article();
+//                article.setHeader();
+//                article.setImage();
+//                article.setUrl();
+//                articleList.add(article);
+
+                if(articleList.size()==5) break;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return articleList;
+
+    }
+
+
 
 }
