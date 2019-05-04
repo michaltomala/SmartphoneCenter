@@ -92,4 +92,12 @@ public class Phone {
     public void setCeneoUrl(String ceneoUrl) {
         this.ceneoUrl = ceneoUrl;
     }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }
