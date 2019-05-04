@@ -19,6 +19,7 @@ public class PhoneService {
     }
 
 
+    public Phone findPhone(String phone){ return phoneRepository.findFirstByName(phone); }
     public List<Phone> getAllPhones(){ return phoneRepository.findAll(); }
     public List<Phone> getAllFlagShips() { return phoneRepository.findAllByPhoneDetails_IsFlagship(true); }
     public List<Phone> getAllExFlagships(){ return phoneRepository.findAllByPhoneDetails_IsExFlagship(true); }

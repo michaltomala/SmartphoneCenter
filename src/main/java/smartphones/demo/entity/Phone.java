@@ -24,7 +24,9 @@ public class Phone {
     @Min(value = 100)
     private int price;
 
-    // todo - link to ceneo
+    @NotEmpty
+    @Column(unique = true)
+    private String ceneoUrl;
 
     @OneToOne(optional = false , cascade = CascadeType.REMOVE)
     @JsonBackReference
@@ -77,5 +79,13 @@ public class Phone {
 
     public void setBrand(Brand brand) {
         this.brand = brand;
+    }
+
+    public String getCeneoUrl() {
+        return ceneoUrl;
+    }
+
+    public void setCeneoUrl(String ceneoUrl) {
+        this.ceneoUrl = ceneoUrl;
     }
 }

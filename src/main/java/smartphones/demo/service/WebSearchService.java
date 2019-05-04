@@ -4,6 +4,7 @@ import org.jsoup.Connection;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import smartphones.demo.entity.Article;
 
@@ -11,11 +12,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.jsoup.Jsoup;
+import smartphones.demo.entity.Phone;
 
 
 @Service
 public class WebSearchService {
 
+    @Autowired
+    private final PhoneService phoneService;
+
+    public WebSearchService(PhoneService phoneService) {
+        this.phoneService = phoneService;
+    }
 
 
     public List<Article> findArticlesFromKomorkomania(){
@@ -98,8 +106,41 @@ public class WebSearchService {
     }
 
 
-    public int findPhonePrice(String phone){
-        return 0;
+    public int findPhonePrice(String phoneName){
+
+        Phone phone = phoneService.findPhone(phoneName);
+        Connection connect = Jsoup.connect(phone.getCeneoUrl());
+
+    }
+
+
+    public List<Article> findArticlesFromTabletowo(){
+        Connection connect = Jsoup.connect("https://www.tabletowo.pl/");
+        List<Article> articleList = new ArrayList<>();
+        try {
+
+            Document document = connect.get();
+            Elements divs = document.select("div.news clearfix");
+
+            for (Element elem : divs) {
+
+                Elements childElems = elem.children();
+
+//                Article article = new Article();
+//                article.setHeader();
+//                article.setImage();
+//                article.setUrl();
+//                articleList.add(article);
+
+                if(articleList.size()==5) break;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return articleList;
+
     }
 
 
