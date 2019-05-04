@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @Entity
@@ -37,6 +38,9 @@ public class Phone {
     @JoinColumn(name = "brand_id")
     @JsonBackReference
     private Brand brand;
+
+    @ManyToMany(mappedBy = "phones")
+    private List<User> users;
 
     public Phone() {
     }

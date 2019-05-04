@@ -2,6 +2,7 @@ package smartphones.demo.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 
 @Entity
@@ -23,6 +24,11 @@ public class User {
 
     private boolean isAdmin = false;
 
+    @ManyToMany
+    @JoinTable(name = "user_phones",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "phone_id"))
+    private List<Phone> phones;
 
     public User() {
     }
