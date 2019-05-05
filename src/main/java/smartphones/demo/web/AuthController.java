@@ -23,7 +23,16 @@ public class AuthController {
     @GetMapping("/login")
     public String login(Model model){
         model.addAttribute("user", new User());
+//      todo - wyśrodkowanie formularza / ogólne poprawienie styli
         return "login";
+    }
+
+
+    @GetMapping("/register")
+    public String register(Model model){
+        model.addAttribute("user", new User());
+//      todo - wyśrodkowanie formularza / ogólne poprawienie styli
+        return "register";
     }
 
 

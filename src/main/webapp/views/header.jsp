@@ -16,7 +16,7 @@
             </a>
             <c:if test="${empty user.name}">
                 <a class="py-2 d-none d-md-inline-block" href="/login">Zaloguj</a>
-                <a class="py-2 d-none d-md-inline-block" href="#">Zarejestruj</a>
+                <a class="py-2 d-none d-md-inline-block" href="/register">Zarejestruj</a>
             </c:if>
             <c:if test="${not empty user.name}">
                 <a class="py-2 d-none d-md-inline-block" href="#">${user.name}</a>

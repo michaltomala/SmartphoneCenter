@@ -1,5 +1,23 @@
+body {
+    margin: 0;
+}
+
 section{
     background-image: url("../images/bgr-oneplus-6t-mclaren-4.jpg");
     background-size:cover;
     background-repeat:no-repeat;
 }
+
+section.login{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/nokia_8-the_design-Oreo.png");
+}
+
+section.register{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/oneplus_7_leak.jpg");
+}
+
+

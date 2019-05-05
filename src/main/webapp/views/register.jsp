@@ -18,9 +18,9 @@
 
 <%@include file="header.jsp"%>
 
-<section class="login">
+<section class="register">
     <form:form method="post"
-               action="${pageContext.request.contextPath}/login"
+               action="${pageContext.request.contextPath}/register"
                modelAttribute="user"
                cssClass="container col-2" >
         <%--<form:errors path="*"  />--%>
@@ -35,12 +35,16 @@
         </div>
 
         <div class="form-group">
+            <form:password path="repeatedPassword" placeholder="password" cssClass="form-input"/>
+            <form:errors path="repeatedPassword" cssClass="alert alert-danger" element="div" />
+        </div>
+
+        <div class="form-group">
             <c:if test="${not empty errDB}">
                 <div class="alert alert-danger">${errDB}</div>
             </c:if>
         </div>
-        <input type="submit" value="Zaloguj" class="btn btn-primary">lub
-        <a href="${pageContext.request.contextPath}/register" class="class="btn btn-primary"">Zarejestruj</a>
+        <input type="submit" value="Zarejestruj" class="btn btn-primary">
     </form:form>
 </section>
 
