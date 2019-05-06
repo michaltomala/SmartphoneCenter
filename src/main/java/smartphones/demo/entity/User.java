@@ -13,10 +13,10 @@ public class User {
     private Long id;
 
     @Column(unique = true)
-    @NotEmpty
+    @NotEmpty(message = "Login nie może być pusty!")
     private String name;
 
-    @NotEmpty
+    @NotEmpty(message = "Hasło nie może być puste!")
     private String password;
 
     @Transient

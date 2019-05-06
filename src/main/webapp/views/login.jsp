@@ -23,24 +23,28 @@
                action="${pageContext.request.contextPath}/login"
                modelAttribute="user"
                cssClass="container col-2" >
-        <%--<form:errors path="*"  />--%>
 
+        <h2>Zaloguj</h2>
         <div class="form-group">
-            <form:input path="name" placeholder="login" cssClass="form-input"/>
+            <form:input path="name" placeholder="Imię" cssClass="form-input"/>
             <form:errors path="name" cssClass="alert alert-danger" element="div" />
         </div>
         <div class="form-group">
-            <form:password path="password" placeholder="password" cssClass="form-input"/>
+            <form:password path="password" placeholder="Hasło" cssClass="form-input"/>
             <form:errors path="password" cssClass="alert alert-danger" element="div" />
         </div>
 
         <div class="form-group">
-            <c:if test="${not empty errDB}">
-                <div class="alert alert-danger">${errDB}</div>
+            <c:if test="${not empty authErr}">
+                <div class="alert alert-danger">${authErr}</div>
             </c:if>
         </div>
-        <input type="submit" value="Zaloguj" class="btn btn-primary">lub
-        <a href="${pageContext.request.contextPath}/register" class="class="btn btn-primary"">Zarejestruj</a>
+
+        <p class="auth">
+            <input type="submit" value="Zaloguj" class="btn btn-primary">
+            <a href="${pageContext.request.contextPath}/register" class="btn btn-secondary my-2">Zarejestruj się</a>
+        </p>
+
     </form:form>
 </section>
 

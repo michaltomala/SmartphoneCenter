@@ -26,8 +26,8 @@
             <p class="lead text-muted">
             Znajdziesz tutaj aktualne informacje o wszystkich smartphonach jak i artykuły im poświęcone
             <p>
-                <a href="#" class="btn btn-primary my-2">Zaloguj się</a>
-                <a href="#" class="btn btn-secondary my-2">Zarejestruj się</a>
+                <a href="/login" class="btn btn-primary my-2">Zaloguj się</a>
+                <a href="/register" class="btn btn-secondary my-2">Zarejestruj się</a>
             </p>
         </div>
     </section>

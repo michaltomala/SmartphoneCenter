@@ -23,28 +23,35 @@
                action="${pageContext.request.contextPath}/register"
                modelAttribute="user"
                cssClass="container col-2" >
-        <%--<form:errors path="*"  />--%>
+
+        <h2>Zarejestruj</h2>
+        <div class="form-group">
+            <form:input path="name" placeholder="Imię" cssClass="form-input"/>
+            <form:errors path="name" cssClass="alert alert-danger" element="div" />
+            <c:if test="${not empty nameErr}">
+                <div class="alert alert-danger">${nameErr}</div>
+            </c:if>
+        </div>
 
         <div class="form-group">
-            <form:input path="name" placeholder="login" cssClass="form-input"/>
-            <form:errors path="name" cssClass="alert alert-danger" element="div" />
-        </div>
-        <div class="form-group">
-            <form:password path="password" placeholder="password" cssClass="form-input"/>
+            <form:password path="password" placeholder="Hasło" cssClass="form-input"/>
             <form:errors path="password" cssClass="alert alert-danger" element="div" />
         </div>
 
         <div class="form-group">
-            <form:password path="repeatedPassword" placeholder="password" cssClass="form-input"/>
+            <form:password path="repeatedPassword" placeholder="Powtórz Hasło" cssClass="form-input"/>
             <form:errors path="repeatedPassword" cssClass="alert alert-danger" element="div" />
-        </div>
-
-        <div class="form-group">
-            <c:if test="${not empty errDB}">
-                <div class="alert alert-danger">${errDB}</div>
+            <c:if test="${not empty pwdErr}">
+                <div class="alert alert-danger">${pwdErr}</div>
             </c:if>
         </div>
-        <input type="submit" value="Zarejestruj" class="btn btn-primary">
+
+
+        <p class="auth">
+            <input type="submit" value="Zarejestruj" class="btn btn-primary"><br/>
+            <a href="${pageContext.request.contextPath}/login" class="btn btn-secondary my-2">Zaloguj się</a>
+        </p>
+
     </form:form>
 </section>
 
