@@ -19,6 +19,7 @@ public class Article {
 
     private String image;
 
+    private String text;
 
     public Article() {
     }
@@ -53,5 +54,13 @@ public class Article {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

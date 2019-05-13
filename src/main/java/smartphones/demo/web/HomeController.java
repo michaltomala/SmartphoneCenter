@@ -1,6 +1,7 @@
 package smartphones.demo.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,6 +14,13 @@ public class HomeController {
     public String home(){
 
         return "home";
+    }
+
+
+    @RequestMapping(path = "/article/*}",method = RequestMethod.GET)
+    public String singleArticle(){
+
+        return "Article";
     }
 
 // todo - singleArticle  /singleArticle/{url}

@@ -2,6 +2,7 @@ package smartphones.demo.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -64,6 +65,18 @@ public class ArticleRestController {
         }
     }
 
+    @RequestMapping(path = "{url}" , method = RequestMethod.GET)
+    public String findSingleArticle(@PathVariable String url){
+
+        Article article= webSearchService.findSingleArticle(url);
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            return mapper.writeValueAsString(article);
+        }catch (Exception e){
+            return "{'error': 'Parse problem'}" + e;
+        }
+    }
 
 //  todo add for single article
 

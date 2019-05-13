@@ -11,6 +11,8 @@ import smartphones.demo.entity.Article;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import org.jsoup.Jsoup;
 import smartphones.demo.entity.Phone;
 
@@ -92,7 +94,6 @@ public class WebSearchService {
                     Article article = new Article();
                     article.setHeader(e.text());
                     article.setUrl(e.child(0).attr("href"));
-                    // todo substring url
                     articleList.add(article);
                     if(articleList.size()==15) break;
                 }
@@ -157,6 +158,72 @@ public class WebSearchService {
 
     }
 
+
+    public Article findSingleArticle(String url){
+        Connection connect = Jsoup.connect("https://komorkomania.pl/"+url);
+        Article article = new Article();
+
+        try{
+            Document document = connect.get();
+            Elements header = document.getElementsByTag("header");
+
+            for(Element h:header) {
+
+                article.setHeader(h.child(0).text());
+
+                Element image = h.getElementsByTag("picture").first();
+                article.setImage(image.attr("srcset"));
+
+
+                Element paragraf = h.child(2);
+                String p = setTextWithoutLinks(paragraf);
+
+                article.setText(p+"\n");
+            }
+
+
+            List<Element> elementList = document.getElementsByClass("article article-main-col");
+            for(Element text:elementList){
+
+                if(text.getElementsByTag("h2")!=null) article.setText(article.getText()+text+"\n");
+                if(text.select("p.graf-500")!=null) {
+                    String str = setTextWithoutLinks(text);
+                    article.setText(article.getText()+str+"\n");
+                }
+                if(text.select("p.graf-250")!=null) {
+                    String str = setTextWithoutLinks(text);
+                    article.setText(article.getText()+str+"\n");
+                }
+
+                if(text.getElementsByTag("ul")!=null){
+                    article.setText(article.getText()+text.toString());
+                }
+
+                if(text.select("figure.insert insert--size-m insert--color-transparent")!=null){
+                    Elements picture = text.getElementsByTag("picture");
+                    for(Element p:picture){
+                        article.setText("\n"+p.child(0).attr("srcset")+"\n");
+                    }
+                }
+
+                article.setText(article.getText()+"t.text()+\n");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return article;
+    }
+
+    private String setTextWithoutLinks(Element text) {
+        Elements links = text.getElementsByTag("a");
+        String str = text.toString();
+        for (Element a : links) {
+            str.replaceFirst(a.toString(), a.text());
+        }
+        return str;
+    }
 
 
 }
