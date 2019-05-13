@@ -15,5 +15,5 @@ public class HomeController {
         return "home";
     }
 
-
+// todo - singleArticle  /singleArticle/{url}
 }

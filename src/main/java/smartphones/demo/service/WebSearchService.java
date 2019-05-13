@@ -92,6 +92,7 @@ public class WebSearchService {
                     Article article = new Article();
                     article.setHeader(e.text());
                     article.setUrl(e.child(0).attr("href"));
+                    // todo substring url
                     articleList.add(article);
                     if(articleList.size()==15) break;
                 }

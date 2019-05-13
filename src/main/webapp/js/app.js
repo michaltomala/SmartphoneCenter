@@ -19,7 +19,7 @@ function getSectionInShort() {
 function addArticleToList(listEl, articleObj) {
     let newA = document.createElement("a");
 
-    newA.href = articleObj.url;
+    newA.href = "http://localhost:8080/signleArticle/" + articleObj.url.substring(24);
     newA.innerText = articleObj.header;
     newA.className="list-group-item list-group-item-action";
 
