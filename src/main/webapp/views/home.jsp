@@ -264,12 +264,8 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="jumbotron-heading" >#W skrócie</h2><br/>
+                <h2 class="jumbotron-heading" >#W skrócie</h2>
                 <div class="list-group" id="InShort">
-                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
 
                 </div>
             </div>
@@ -287,6 +283,13 @@
         <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
     </div>
 </footer>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="../js/app.js"></script>
 
 </body>
 </html>

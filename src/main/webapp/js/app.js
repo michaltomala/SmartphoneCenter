@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // getArticles();
     getSectionInShort();
-}
+})
 
 function getSectionInShort() {
     $.ajax({
@@ -12,8 +12,19 @@ function getSectionInShort() {
     })
         .done(function(articles){
             let listEl = document.getElementById("InShort");
-            articles.forEach( articles => addBookToList(listEl, article) );
+            articles.forEach( article => addArticleToList(listEl, article) );
         })
+}
+
+function addArticleToList(listEl, articleObj) {
+    let newA = document.createElement("a");
+
+    newA.href = articleObj.url;
+    newA.innerText = articleObj.header;
+    newA.className="list-group-item list-group-item-action";
+
+    listEl.appendChild(newA);
+
 }
 
 
