@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // getArticles();
     getSectionInShort();
+
 })
 
 function getSectionInShort() {
     $.ajax({
         url: "http://localhost:8080/api/article/komorkomania/section",
-        // url: "http://localhost:8282/books",
         dataType: "json"
     })
         .done(function(articles){
@@ -19,7 +19,7 @@ function getSectionInShort() {
 function addArticleToList(listEl, articleObj) {
     let newA = document.createElement("a");
 
-    newA.href = "http://localhost:8080/signleArticle/" + articleObj.url.substring(24);
+    newA.href = "http://localhost:8080/article?article=" + articleObj.url.substring(24);
     newA.innerText = articleObj.header;
     newA.className="list-group-item list-group-item-action";
 
