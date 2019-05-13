@@ -62,6 +62,7 @@ public class WebSearchService {
         if(secondStop==-1) {
             secondStart = picture.indexOf("data-src")+3;
             secondStop = picture.indexOf(".jpg\" class=\"lazyload\">");
+            if(secondStop==-1)secondStop = picture.indexOf(".png\" class=\"lazyload\">");
         }
         String image = picture.substring(secondStart+10,secondStop+4);
         article.setImage(image);
