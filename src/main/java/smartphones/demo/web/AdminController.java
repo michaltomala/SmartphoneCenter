@@ -12,7 +12,7 @@ public class AdminController {
     @GetMapping("/dashboard")
     public String dashboard(){
 
-        return "dashboard";
+        return "Dashboard";
     }
 
 }
