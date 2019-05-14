@@ -1,7 +1,6 @@
 package smartphones.demo.web;
 
 
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +29,6 @@ public class AuthController {
     @GetMapping("/login")
     public String login(Model model){
         model.addAttribute("user", new User());
-//      todo - inline buttons / header
         return "login";
     }
 
@@ -56,7 +54,6 @@ public class AuthController {
     @GetMapping("/register")
     public String register(Model model){
         model.addAttribute("user", new User());
-//      todo - wyśrodkowanie formularza / ogólne poprawienie styli
 //      todo - coding problem
         return "register";
     }

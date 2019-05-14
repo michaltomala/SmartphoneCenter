@@ -62,12 +62,18 @@ public class WebSearchService {
         int secondStart = picture.indexOf("<img ");
         int secondStop = picture.indexOf(".jpg\" width");
         if(secondStop==-1) {
-            secondStart = picture.indexOf("data-src")+3;
+            secondStart = picture.indexOf("data-src");
             secondStop = picture.indexOf(".jpg\" class=\"lazyload\">");
             if(secondStop==-1)secondStop = picture.indexOf(".png\" class=\"lazyload\">");
         }
         String image = picture.substring(secondStart+10,secondStop+4);
-        article.setImage(image);
+
+        if(image.startsWith("https:")){
+            article.setImage(image);
+        } else{
+            String newImage = image.substring(3);
+            article.setImage(newImage);
+        }
     }
 
     private boolean setUrl(Element elem, Article article) {

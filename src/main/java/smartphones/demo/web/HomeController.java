@@ -17,7 +17,7 @@ public class HomeController {
     }
 
 
-    @RequestMapping(path = "/article/*}",method = RequestMethod.GET)
+    @RequestMapping(path = "/article"+"*",method = RequestMethod.GET)
     public String singleArticle(){
 
         return "Article";
