@@ -20,9 +20,9 @@ import smartphones.demo.entity.Phone;
 @Service
 public class WebSearchService {
 
-    @Autowired
     private final PhoneService phoneService;
 
+    @Autowired
     public WebSearchService(PhoneService phoneService) {
         this.phoneService = phoneService;
     }
@@ -166,18 +166,18 @@ public class WebSearchService {
 
 
     public Article findSingleArticle(String url){
-        Connection connect = Jsoup.connect("https://komorkomania.pl/"+url);
+        Connection connect = Jsoup.connect("https://komorkomania.pl/"+url.substring(8));
         Article article = new Article();
 
         try{
             Document document = connect.get();
-            Elements header = document.getElementsByTag("header");
+            Elements header = document.select("header.article__header");
 
             for(Element h:header) {
 
                 article.setHeader(h.child(0).text());
 
-                Element image = h.getElementsByTag("picture").first();
+                Element image = h.getElementsByTag("picture").first().child(0);
                 article.setImage(image.attr("srcset"));
 
 
