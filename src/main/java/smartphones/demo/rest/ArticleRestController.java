@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import smartphones.demo.entity.Article;
+import smartphones.demo.model.Article;
 import smartphones.demo.service.WebSearchService;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class ArticleRestController {
 
 
     @RequestMapping(path = "komorkomania",method = RequestMethod.GET)
-    public String findArticlesFromKomórkomania(){
+    public String findArticlesFromKomorkomania(){
 
         List<Article> articles = webSearchService.findArticlesFromKomorkomania();
         ObjectMapper mapper = new ObjectMapper();

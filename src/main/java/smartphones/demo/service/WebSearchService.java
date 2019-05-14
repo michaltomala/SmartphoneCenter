@@ -6,12 +6,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import smartphones.demo.entity.Article;
+import smartphones.demo.model.Article;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.jsoup.Jsoup;
 import smartphones.demo.entity.Phone;

@@ -1,20 +1,11 @@
-package smartphones.demo.entity;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+package smartphones.demo.model;
 
 
-@Entity
 public class Article {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @NotEmpty
     private String header;
 
-    @NotEmpty
     private String url;
 
     private String image;
@@ -24,13 +15,6 @@ public class Article {
     public Article() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getHeader() {
         return header;
