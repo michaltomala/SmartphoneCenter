@@ -29,6 +29,7 @@ public class BrandService {
         return singleBrand.getPhones();
     }
 
+    public void save(Brand brand){ brandRepository.save(brand); }
 
 }
 
