@@ -28,7 +28,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-
     public void checkNameAndPassword(User user, Err modelErr){
         User userToCheck = userRepository.findFirstByName(user.getName());
 
