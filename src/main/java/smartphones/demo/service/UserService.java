@@ -23,8 +23,7 @@ public class UserService {
     public User findUser(String name){ return userRepository.findFirstByName(name); }
     public void registerUser(User user){
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
-        User userToCheck = userRepository.getOne((long) 1);
-        if( userToCheck == null) user.setAdmin(true);
+        if( !userRepository.existsById((long)1)) user.setAdmin(true);
         userRepository.save(user);
     }
 
