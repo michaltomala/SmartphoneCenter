@@ -1,5 +1,7 @@
 package smartphones.demo.filter;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import smartphones.demo.entity.User;
 
 import javax.servlet.*;
@@ -9,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "IsAdminFilter", urlPatterns = "/dashboard" )
+@WebFilter(urlPatterns = "/admin/*")
 public class IsAdminFilter implements Filter {
 
     public void destroy() {
@@ -22,10 +24,16 @@ public class IsAdminFilter implements Filter {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
+        if(user==null){
+            response.sendRedirect(request.getContextPath()+"/login");
+            return;
+        }
+
         if(!user.isAdmin()){
             response.sendRedirect(request.getContextPath()+"/login");
             return;
         }
+
 
         chain.doFilter(req, resp);
     }

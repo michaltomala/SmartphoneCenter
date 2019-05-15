@@ -8,6 +8,5 @@ import smartphones.demo.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     User findFirstByName(String name);
-//    User findFirst();
 
 }

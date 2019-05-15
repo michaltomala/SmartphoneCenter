@@ -48,7 +48,7 @@ public class AuthController {
 
         User checkedUser = userService.findUser(user.getName());
         session.setAttribute("user",checkedUser );
-        if(checkedUser.isAdmin()) return "redirect:/dashboard";
+        if(checkedUser.isAdmin()) return "redirect:/admin/dashboard";
         return "redirect:/";
 
     }

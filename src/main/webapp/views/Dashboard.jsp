@@ -100,5 +100,30 @@
     var title = document.title.replace('Tutorial Republic', '');
     document.getElementById('twitter-share-btn').href = 'https://twitter.com/share?text=' + title + '&amp;url=https://www.tutorialrepublic.com%2Fsnippets%2Fpreview.php%3Ftopic%3Dbootstrap%26file%3Ddata-table-with-filter-row-feature';
 </script>
+
+<script type="text/javascript">
+    function resizeFrame(){
+        var frame = document.getElementById("preview");
+        frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
+    }
+    function newWindow(){
+        document.getElementById("preview-form").submit();
+    }
+    $(document).ready(function(){
+        var delay;
+        $("iframe").load(function(){
+            resizeFrame();
+            $(this).contents().on("mousedown, mouseup, click", function(){
+                clearTimeout(delay);
+                delay = setTimeout(resizeFrame, 10);
+            });
+        });
+        $.post("update-views.php", {
+            snippet_id: 38
+        });
+    });
+</script>
+
+
 </body>
 </html>
