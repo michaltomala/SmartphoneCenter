@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/admin/*")
+@WebFilter(urlPatterns = "/admin/abc")
 public class IsAdminFilter implements Filter {
 
     public void destroy() {

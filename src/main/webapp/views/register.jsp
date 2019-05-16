@@ -48,7 +48,7 @@
 
 
         <p class="auth">
-            <input type="submit" value="Zarejestruj" class="btn btn-primary"><br/>
+            <input type="submit" value="Zarejestruj" class="btn btn-primary">
             <a href="${pageContext.request.contextPath}/login" class="btn btn-secondary my-2">Zaloguj się</a>
         </p>
 
