@@ -10,12 +10,12 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
 
 </head>
 <body class="dashboard">
 
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 
     <div class="table-wrapper">
         <div class="table-title">
@@ -118,6 +118,6 @@
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-<script src="../js/dashboard.js"></script>
+<script src="../../js/dashboard.js"></script>
 </body>
 </html>

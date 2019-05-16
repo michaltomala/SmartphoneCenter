@@ -1,4 +1,4 @@
-package smartphones.demo.web;
+package smartphones.demo.web.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +15,12 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/brand/")
-public class BrandController {
+public class BrandAdminController {
 
     private final BrandService brandService;
 
     @Autowired
-    public BrandController(BrandService brandService) {
+    public BrandAdminController(BrandService brandService) {
         this.brandService = brandService;
     }
 

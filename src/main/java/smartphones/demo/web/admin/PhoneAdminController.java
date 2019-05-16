@@ -1,4 +1,4 @@
-package smartphones.demo.web;
+package smartphones.demo.web.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +9,12 @@ import smartphones.demo.service.PhoneService;
 
 @Controller
 @RequestMapping("/phone/")
-public class PhoneController {
+public class PhoneAdminController {
 
     private final PhoneService phoneService;
 
     @Autowired
-    public PhoneController(PhoneService phoneService) {
+    public PhoneAdminController(PhoneService phoneService) {
         this.phoneService = phoneService;
     }
 
