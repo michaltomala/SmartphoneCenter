@@ -51,63 +51,23 @@ function getBrandHeaders(tr) {
 
 }
 
-function getPhoneHeaders(thead){
+function getPhoneHeaders(tr){
 
-// let tr = document.createElement("tr");
-//
-// let number = document.createElement("th");
-// number.innerText = "#";
-// tr.appendChild(number);
-//
-// let name = document.createElement("th");
-// name.innerText = "Nazwa";
-// tr.appendChild(name);
-//
-// let size = document.createElement("th");
-// size.innerText = "Liczba Smartphonów";
-// tr.appendChild(size);
-//
-// let add = document.createElement("th");
-// let link = document.createElement("a");
-// link.href = "/AddBrand";
-// link.className = "btn btn-success";
-//
-// let i = document.createElement("i");
-// i.className = "material-icons";
-// i.innerText = "";
-//
-// let span = document.createElement("span");
-// span.innerText = "Dodaj";
-//
-// link.appendChild(i);
-// link.appendChild(span);
-//
-// add.appendChild(link);
-// tr.appendChild(add);
-//
-// let edit = document.createElement("th");
-// edit.innerText = "Edycja";
-// tr.appendChild(edit);
-//
-// let deleteElem = document.createElement("th");
-// let linkElem = document.createElement("a");
-// linkElem.href = "/DeleteBrand";
-// linkElem.className="btn btn-danger";
-//
-// let iElem = document.createElement("i");
-// iElem.className = "material-icons";
-// iElem.innerText = "";
-//
-// let spanElem = document.createElement("span");
-// spanElem.innerText = "Usuń";
-//
-// linkElem.appendChild(iElem);
-// linkElem.appendChild(spanElem);
-//
-// deleteElem.appendChild(linkElem);
-// tr.appendChild(deleteElem);
-//
-// thead.appendChild(tr);
+    let headers = tr.children;
+    headers[1].innerHTML = "Marka";
+    headers[2].innerHTML = "Nazwa";
+    if(headers[3].getElementsByTagName("a") !== null) {
+        let th = document.createElement("th");
+        th.innerHTML = "Cena";
+        tr.insertBefore(th,headers[3])
+    }
+
+    let links = tr.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+        if(links[i].className === "btn btn-success") links[i].href = "/AddPhone";
+        else if(links[i].className === "btn btn-danger") links[i].href = "/DeletePhone";
+    }
+
 }
     // brand
 

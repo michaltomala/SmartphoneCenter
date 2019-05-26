@@ -35,31 +35,31 @@
         </div>
         <table class="table table-striped table-hover">
             <thead >
-            <%--<tr id="head section" >--%>
-                <%--<th>#</th>--%>
-                <%--<th>Nazwa</th>--%>
-                <%--<th>Liczba Smartphonów</th>--%>
-                <%--<th>--%>
-                    <%--<a href="/AddBrand" class="btn btn-success"><i class="material-icons"></i><span>Dodaj</span></a>--%>
-                <%--</th>--%>
-                <%--<th>Edycja</th>--%>
-                <%--<th>--%>
-                    <%--<a href="/DeleteBrand" class="btn btn-danger"><i class="material-icons"></i><span>Usuń</span></a>--%>
-                <%--</th>--%>
-            <%--</tr>--%>
-
-            <tr id="head section">
+            <tr id="head section" >
                 <th>#</th>
-                <th>Marka</th>
                 <th>Nazwa</th>
-                <th>Cena</th>
+                <th>Liczba Smartphonów</th>
                 <th>
-                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Dodaj</span></a>
+                    <a href="/AddBrand" class="btn btn-success"><i class="material-icons"></i><span>Dodaj</span></a>
                 </th>
                 <th>Edycja</th>
-                <th><a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Usuń</span></a>
+                <th>
+                    <a href="/DeleteBrand" class="btn btn-danger"><i class="material-icons"></i><span>Usuń</span></a>
                 </th>
             </tr>
+
+            <%--<tr id="head section">--%>
+                <%--<th>#</th>--%>
+                <%--<th>Marka</th>--%>
+                <%--<th>Nazwa</th>--%>
+                <%--<th>Cena</th>--%>
+                <%--<th>--%>
+                    <%--<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Dodaj</span></a>--%>
+                <%--</th>--%>
+                <%--<th>Edycja</th>--%>
+                <%--<th><a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Usuń</span></a>--%>
+                <%--</th>--%>
+            <%--</tr>--%>
             </thead>
             <tbody>
             </tbody>
