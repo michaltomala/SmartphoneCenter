@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function getBrands(){
 
-    let thead = document.getElementById("head");
-    getHeaders(thead);
+    let tr = document.getElementById("head section");
+    getBrandHeaders(tr);
 
     // $.ajax({
     //     url: "http://localhost:8080/api/brand/all",
@@ -20,66 +20,97 @@ function getBrands(){
 
 }
 
-function getHeaders(thead) {
+function getPhones(){
 
-    let tr = document.createElement("tr");
+    let tr = document.getElementById("head section");
+    getPhoneHeaders(tr);
 
-    let number = document.createElement("th");
-    number.innerText = "#";
-    tr.appendChild(number);
+    // $.ajax({
+    //     url: "http://localhost:8080/api/brand/all",
+    //     dataType: "json"
+    // })
+    //     .done(function (brands) {
+    //         let tbody = document.getElementsByTagName("tbody");
+    //         brands.forEach(brand => addArticleToList(tbody,brand));
+    //     })
 
-    let name = document.createElement("th");
-    name.innerText = "Nazwa";
-    tr.appendChild(name);
-
-    let size = document.createElement("th");
-    size.innerText = "Liczba Smartphonów";
-    tr.appendChild(size);
-
-    let add = document.createElement("th");
-    let link = document.createElement("a");
-    link.href = "/AddBrand";
-    link.className = "btn btn-success";
-
-    let i = document.createElement("i");
-    i.className = "material-icons";
-    i.innerText = "";
-
-    let span = document.createElement("span");
-    span.innerText = "Dodaj";
-
-    link.appendChild(i);
-    link.appendChild(span);
-
-    add.appendChild(link);
-    tr.appendChild(add);
-
-    let edit = document.createElement("th");
-    edit.innerText = "Edycja";
-    tr.appendChild(edit);
-
-    let deleteElem = document.createElement("th");
-    let linkElem = document.createElement("a");
-    linkElem.href = "/DeleteBrand";
-    linkElem.className="btn btn-danger";
-
-    let iElem = document.createElement("i");
-    iElem.className = "material-icons";
-    iElem.innerText = "";
-
-    let spanElem = document.createElement("span");
-    spanElem.innerText = "Usuń";
-
-    linkElem.appendChild(iElem);
-    linkElem.appendChild(spanElem);
-
-    deleteElem.appendChild(linkElem);
-    tr.appendChild(deleteElem);
-
-    thead.appendChild(tr);
 }
 
+function getBrandHeaders(tr) {
+
+    let headers = tr.children;
+    headers[1].innerHTML = "Nazwa";
+    headers[2].innerHTML = "Liczba Smartphonów";
+    if(headers[3].innerHTML==="Cena") tr.removeChild(headers[3]);
+
+    let links = tr.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+        if(links[i].className === "btn btn-success") links[i].href = "/AddBrand";
+        else if(links[i].className === "btn btn-danger") links[i].href = "/DeleteBrand";
+    }
+
+}
+
+function getPhoneHeaders(thead){
+
+// let tr = document.createElement("tr");
+//
+// let number = document.createElement("th");
+// number.innerText = "#";
+// tr.appendChild(number);
+//
+// let name = document.createElement("th");
+// name.innerText = "Nazwa";
+// tr.appendChild(name);
+//
+// let size = document.createElement("th");
+// size.innerText = "Liczba Smartphonów";
+// tr.appendChild(size);
+//
+// let add = document.createElement("th");
+// let link = document.createElement("a");
+// link.href = "/AddBrand";
+// link.className = "btn btn-success";
+//
+// let i = document.createElement("i");
+// i.className = "material-icons";
+// i.innerText = "";
+//
+// let span = document.createElement("span");
+// span.innerText = "Dodaj";
+//
+// link.appendChild(i);
+// link.appendChild(span);
+//
+// add.appendChild(link);
+// tr.appendChild(add);
+//
+// let edit = document.createElement("th");
+// edit.innerText = "Edycja";
+// tr.appendChild(edit);
+//
+// let deleteElem = document.createElement("th");
+// let linkElem = document.createElement("a");
+// linkElem.href = "/DeleteBrand";
+// linkElem.className="btn btn-danger";
+//
+// let iElem = document.createElement("i");
+// iElem.className = "material-icons";
+// iElem.innerText = "";
+//
+// let spanElem = document.createElement("span");
+// spanElem.innerText = "Usuń";
+//
+// linkElem.appendChild(iElem);
+// linkElem.appendChild(spanElem);
+//
+// deleteElem.appendChild(linkElem);
+// tr.appendChild(deleteElem);
+//
+// thead.appendChild(tr);
+}
     // brand
+
 
 
     //         <tbody>
