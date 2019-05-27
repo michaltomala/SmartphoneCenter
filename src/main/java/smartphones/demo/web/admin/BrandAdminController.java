@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/brand/")
+@RequestMapping("/admin/brand/")
 public class BrandAdminController {
 
     private final BrandService brandService;
@@ -27,6 +27,11 @@ public class BrandAdminController {
     /**
      * Three methods for create ,update and delete brand.
      */
+
+    @GetMapping("/create")
+    public String create(){
+        return "admin/brandForm";
+    }
 
 //    @PostMapping("create")
 //     todo - check if void is working

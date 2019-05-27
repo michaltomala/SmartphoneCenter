@@ -45,7 +45,7 @@ function getBrandHeaders(tr) {
 
     let links = tr.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++) {
-        if(links[i].className === "btn btn-success") links[i].href = "/AddBrand";
+        if(links[i].className === "btn btn-success") links[i].href = "/admin/brand/create";
         else if(links[i].className === "btn btn-danger") links[i].href = "/DeleteBrand";
     }
 
@@ -64,7 +64,7 @@ function getPhoneHeaders(tr){
 
     let links = tr.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++) {
-        if(links[i].className === "btn btn-success") links[i].href = "/AddPhone";
+        if(links[i].className === "btn btn-success") links[i].href = "/admin/phone/create";
         else if(links[i].className === "btn btn-danger") links[i].href = "/DeletePhone";
     }
 
@@ -90,23 +90,6 @@ function getPhoneHeaders(tr){
 
 
 // smartphone
-
-
-    //         <thead>
-    //         <tr>
-    //         <th>#</th>
-    // <th>Marka</th>
-    // <th>Nazwa</th>
-    // <th>Cena</th>
-    // <th>
-    // <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Dodaj</span></a>
-    // </th>
-    // <th>Edycja</th>
-    // <th><a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Usuń</span></a>
-    // </th>
-    // </tr>
-    // </thead>
-
 
 
     //         <tr data-status="active">
