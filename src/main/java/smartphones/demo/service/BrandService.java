@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import smartphones.demo.entity.Brand;
 import smartphones.demo.entity.Phone;
 import smartphones.demo.repository.BrandRepository;
+import pl.coderslab.model.Err;
 
 import java.util.List;
 
@@ -30,6 +31,14 @@ public class BrandService {
     }
 
     public void save(Brand brand){ brandRepository.save(brand); }
+
+    public void checkName(Brand brand,Err modelErr){
+
+        if(brand.getName().equals("")) modelErr.addErr("Empty!");
+
+        Brand brandToCheck = brandRepository.findFirstByName(brand.getName());
+        if(brandToCheck!=null) modelErr.addErr("Not unique!");
+    }
 
 }
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import smartphones.demo.entity.Brand;
 import smartphones.demo.service.BrandService;
+import pl.coderslab.model.Err;
 
 import javax.validation.Valid;
 
@@ -29,20 +30,27 @@ public class BrandAdminController {
      * Three methods for create ,update and delete brand.
      */
 
-    @GetMapping("/create")
+    @GetMapping("create")
     public String create(Model model){
         model.addAttribute("brand", new Brand());
         return "admin/brandForm";
     }
 
-//    @PostMapping("create")
+    @PostMapping("create")
 //     todo - check if void is working
-//    public void createBrand(@Valid Brand brand, BindingResult result){
+    public String createBrand(Brand brand,Model model){
 
-//        if(result.hasErrors()) // todo - return to form
-//        brandService.save(brand);
-        // todo - redirect
-//    }
+        Err modelErr = new pl.coderslab.model.Err();
+
+        brandService.checkName(brand,modelErr);
+        if(!modelErr.isEmpty()){
+            model.addAttribute("brandErr", "Nazwa nie może być pusta oraz musi być unikalna!");
+            return "admin/brandForm";
+        }
+
+        brandService.save(brand);
+        return "redirect:/admin/dashboard";
+    }
 
 //    @PostMapping("edit")
 //    public String updateBrand(@Valid Brand brand, BindingResult result){

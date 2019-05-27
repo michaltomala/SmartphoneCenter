@@ -20,7 +20,7 @@
 
 <section class="create-Brand-Form">
     <form:form method="post"
-               action="${pageContext.request.contextPath}/login"
+               action="${pageContext.request.contextPath}/admin/brand/create"
                modelAttribute="brand"
                cssClass="container col-2" >
 
