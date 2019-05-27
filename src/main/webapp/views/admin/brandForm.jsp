@@ -23,8 +23,8 @@
                modelAttribute="brand"
                cssClass="container col-2" >
 
-        <c:if test="${empty brand.id}"><h2>Dodaj nową Markę</h2></c:if>
-        <c:if test="${not empty brand.id}"><h2>Edytuj</h2></c:if>
+        <c:if test="${empty brand.id}"><h2 class="brandForm">Dodaj nową Markę</h2></c:if>
+        <c:if test="${not empty brand.id}"><h2 class="brandForm">Edytuj</h2></c:if>
 
         <div class="form-group">
             <form:input path="name" placeholder="nazwa" cssClass="form-input"/>

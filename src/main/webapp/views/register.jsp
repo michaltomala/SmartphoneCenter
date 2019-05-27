@@ -24,7 +24,7 @@
                modelAttribute="user"
                cssClass="container col-2" >
 
-        <h2>Zarejestruj</h2>
+        <h2 class="auth">Zarejestruj się</h2>
         <div class="form-group">
             <form:input path="name" placeholder="Imię" cssClass="form-input"/>
             <form:errors path="name" cssClass="alert alert-danger" element="div" />

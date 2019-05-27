@@ -49,6 +49,15 @@ h2 {
     margin-bottom: 25px;
 }
 
+h2.auth{
+    width:400px;
+    margin-left: -85px;
+}
+
+h2.brandForm{
+    width:400px;
+    margin-left: -90px;
+}
 /* Style for admin dashboard */
 
 .table-wrapper {

@@ -61,7 +61,7 @@ function addBrandRecordToList(tbody, brand) {
 
     let deleteElem = document.createElement("td");
     let deleteInput = document.createElement("input");
-    deleteInput.type = "checkbox";
+    deleteInput.type = "radio";
     deleteInput.name = "options[]";
     deleteInput.value = brand.id;
     deleteElem.appendChild(deleteInput);

@@ -80,13 +80,6 @@ public class BrandAdminController {
     }
 
 
-//    @PostMapping("edit")
-//    public String updateBrand(@Valid Brand brand, BindingResult result){
-
-//        if(result.hasErrors()) // todo - return to form
-//        brandService.save(brand);
-        // todo - redirect
-//    }
 
 //    @GetMapping("/delete/{id}")
 //    public String deleteBrand(@PathVariable Long id){
