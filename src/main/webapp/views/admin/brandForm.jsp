@@ -19,12 +19,12 @@
 
 <section class="create-Brand-Form">
     <form:form method="post"
-               action="${pageContext.request.contextPath}/admin/brand/create"
+               action="${formAction}"
                modelAttribute="brand"
                cssClass="container col-2" >
 
-        <c:if test="${empty brand.name}"><h2>Dodaj nową Markę</h2></c:if>
-        <c:if test="${not empty brand.name}"><h2>Edytuj</h2></c:if>
+        <c:if test="${empty brand.id}"><h2>Dodaj nową Markę</h2></c:if>
+        <c:if test="${not empty brand.id}"><h2>Edytuj</h2></c:if>
 
         <div class="form-group">
             <form:input path="name" placeholder="nazwa" cssClass="form-input"/>
@@ -36,7 +36,7 @@
         </div>
 
         <p class="auth">
-            <input type="submit" value="Dodaj" class="btn btn-primary">
+            <input type="submit" value="Zapisz" class="btn btn-primary">
         </p>
 
     </form:form>

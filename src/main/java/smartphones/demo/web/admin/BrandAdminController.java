@@ -12,6 +12,7 @@ import smartphones.demo.entity.Brand;
 import smartphones.demo.service.BrandService;
 import pl.coderslab.model.Err;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
@@ -31,8 +32,9 @@ public class BrandAdminController {
      */
 
     @GetMapping("create")
-    public String create(Model model){
+    public String create(Model model,HttpServletRequest request){
         model.addAttribute("brand", new Brand());
+        model.addAttribute("formAction", request.getContextPath() + "/admin/brand/create");
         return "admin/brandForm";
     }
 
@@ -40,11 +42,12 @@ public class BrandAdminController {
 //     todo - check if void is working
     public String createBrand(Brand brand,Model model){
 
-        Err modelErr = new pl.coderslab.model.Err();
+        Err modelErr = new Err();
 
         brandService.checkName(brand,modelErr);
-        if(!modelErr.isEmpty()){
+        if (!modelErr.isEmpty()) {
             model.addAttribute("brandErr", "Nazwa nie może być pusta oraz musi być unikalna!");
+            model.addAttribute("brand", new Brand());
             return "admin/brandForm";
         }
 
@@ -53,10 +56,27 @@ public class BrandAdminController {
     }
 
     @GetMapping("edit/{id}")
-    public String edit(@PathVariable Long id,Model model){
+    public String edit(@PathVariable Long id, Model model, HttpServletRequest request){
 
         model.addAttribute("brand",brandService.findBrand(id));
+        model.addAttribute("formAction", request.getContextPath() + "/admin/brand/edit/"+id);
         return "admin/brandForm";
+    }
+
+    @PostMapping("edit/{id}")
+    public String edit(Brand brand,Model model){
+
+        Err modelErr = new Err();
+
+        brandService.checkNameDuringEdit(brand,modelErr);
+        if (!modelErr.isEmpty()) {
+            model.addAttribute("brandErr", "Nazwa nie może być pusta oraz musi być unikalna!");
+            model.addAttribute("brand", brand);
+            return "admin/brandForm";
+        }
+
+        brandService.save(brand);
+        return "redirect:/admin/dashboard";
     }
 
 

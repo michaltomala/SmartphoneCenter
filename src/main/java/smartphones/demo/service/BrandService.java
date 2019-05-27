@@ -40,5 +40,13 @@ public class BrandService {
         if(brandToCheck!=null) modelErr.addErr("Not unique!");
     }
 
+    public void checkNameDuringEdit(Brand brand,Err modelErr){
+        if(brand.getName().equals("")) modelErr.addErr("Empty!");
+
+        Brand brandToCheck = brandRepository.findFirstByName(brand.getName());
+        if(brandToCheck!=null && brandToCheck.getId() != brand.getId()){
+            modelErr.addErr("Not unique!");
+        }
+    }
 }
 
