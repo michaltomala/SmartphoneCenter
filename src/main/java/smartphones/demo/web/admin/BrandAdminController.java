@@ -2,6 +2,7 @@ package smartphones.demo.web.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +30,8 @@ public class BrandAdminController {
      */
 
     @GetMapping("/create")
-    public String create(){
+    public String create(Model model){
+        model.addAttribute("brand", new Brand());
         return "admin/brandForm";
     }
 

@@ -31,6 +31,16 @@ section.register form , section.login form{
     text-align: center;
 }
 
+section.create-Brand-Form{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/Royole-flexible-tablet-smartphone.jpg");
+}
+
+section.create-Brand-Form form{
+    padding-top: 115px;
+    text-align: center;
+}
 
 h2 {
     text-align: center;
