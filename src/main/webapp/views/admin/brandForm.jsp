@@ -9,9 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Title</title>
 
-    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--%>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
 
 </head>
 <body>
@@ -24,7 +23,9 @@
                modelAttribute="brand"
                cssClass="container col-2" >
 
-        <h2>Dodaj nową Markę</h2>
+        <c:if test="${empty brand.name}"><h2>Dodaj nową Markę</h2></c:if>
+        <c:if test="${not empty brand.name}"><h2>Edytuj</h2></c:if>
+
         <div class="form-group">
             <form:input path="name" placeholder="nazwa" cssClass="form-input"/>
         </div>

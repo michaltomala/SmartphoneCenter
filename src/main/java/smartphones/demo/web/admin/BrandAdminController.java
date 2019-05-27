@@ -52,6 +52,14 @@ public class BrandAdminController {
         return "redirect:/admin/dashboard";
     }
 
+    @GetMapping("edit/{id}")
+    public String edit(@PathVariable Long id,Model model){
+
+        model.addAttribute("brand",brandService.findBrand(id));
+        return "admin/brandForm";
+    }
+
+
 //    @PostMapping("edit")
 //    public String updateBrand(@Valid Brand brand, BindingResult result){
 

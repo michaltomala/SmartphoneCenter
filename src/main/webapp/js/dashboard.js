@@ -54,7 +54,7 @@ function addBrandRecordToList(tbody, brand) {
 
     let edit = document.createElement("td");
     let editLink = document.createElement("a");
-    editLink.href="#";
+    editLink.href="/admin/brand/edit/"+brand.id;
     editLink.className = "btn btn-sm manage";
     editLink.innerHTML = "Edytuj";
     edit.appendChild(editLink);

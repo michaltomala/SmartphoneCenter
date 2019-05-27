@@ -20,7 +20,7 @@ public class BrandService {
         this.brandRepository = brandRepository;
     }
 
-    public Brand findBrand(Long id){ return brandRepository.getOne(id); }
+    public Brand findBrand(Long id){ return brandRepository.findFirstById(id); }
     public Brand findBrand(String brand){ return brandRepository.findFirstByName(brand); }
 
     public List<Brand> getAllBrands(){ return brandRepository.findAllByOrderByNameAsc();   }

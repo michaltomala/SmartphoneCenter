@@ -34,7 +34,7 @@ public class Phone {
     private PhoneDetails phoneDetails;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "brand_id")
     @JsonBackReference
     private Brand brand;
