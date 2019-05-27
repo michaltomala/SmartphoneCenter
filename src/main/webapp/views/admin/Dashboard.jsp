@@ -24,10 +24,10 @@
                 <div class="col-sm-6">
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-info active">
-                            <input type="radio" name="status" value="all" checked="checked"> Marki
+                            <input type="radio" checked="checked" id="brands"> Marki
                         </label>
                         <label class="btn btn-info active" >
-                            <input type="radio" name="status" value="active" > Smartphony
+                            <input type="radio" id="smartphones"> Smartphony
                         </label>
                     </div>
                 </div>

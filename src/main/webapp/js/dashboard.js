@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function(){
 
     getBrands();
-
+    addSwitchButtons();
 });
 
 function getBrands(){
+
+    let phoneBtn = document.getElementById("smartphones");
+    phoneBtn.checked=false;
 
     let tr = document.getElementById("head section");
     getBrandHeaders(tr);
@@ -15,23 +18,28 @@ function getBrands(){
     })
         .done(function (brands) {
             let tbody = document.getElementById("records section");
-            brands.forEach(brand => addRecordToList(tbody,brand));
+            while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+            brands.forEach(brand => addBrandRecordToList(tbody,brand));
         })
+
+        // todo - check if there is no record but brand is no empty
         .always(function (brands) {
             if(brands.length === 0){
                 let tbody = document.getElementById("records section");
-                let info = document.createElement("td");
-                info.innerHTML = "Nie ma żadnych elementów w bazie";
-                tbody.appendChild(info);
+                if(tbody.children.length===0) {
+                    let info = document.createElement("td");
+                    info.innerHTML = "Nie ma żadnych elementów w bazie";
+                    tbody.appendChild(info);
+                }
             }
         })
 }
 
-function addRecordToList(tbody, brand) {
+function addBrandRecordToList(tbody, brand) {
     let tr = document.createElement("tr");
 
-    let id = document.createElement("td");
-    id.innerHTML = tbody.children.length+1;
+    let number = document.createElement("td");
+    number.innerHTML = tbody.children.length+1;
 
     let name = document.createElement("td");
     let nameLink = document.createElement("a");
@@ -58,11 +66,11 @@ function addRecordToList(tbody, brand) {
     deleteInput.value = brand.id;
     deleteElem.appendChild(deleteInput);
 
-    addBrandDataToRecord(tbody,tr,id,name,smartphoneNumber,add,edit,deleteElem);
+    addBrandDataToRecord(tbody,tr,number,name,smartphoneNumber,add,edit,deleteElem);
 }
 
-function addBrandDataToRecord(tbody,tr,id,name,smartphoneNumber,add,edit,deleteElem) {
-    tr.appendChild(id);
+function addBrandDataToRecord(tbody,tr,number,name,smartphoneNumber,add,edit,deleteElem) {
+    tr.appendChild(number);
     tr.appendChild(name);
     tr.appendChild(smartphoneNumber);
     tr.appendChild(add);
@@ -75,18 +83,80 @@ function addBrandDataToRecord(tbody,tr,id,name,smartphoneNumber,add,edit,deleteE
 
 function getPhones(){
 
+    let phoneBtn = document.getElementById("brands");
+    phoneBtn.checked=false;
+
     let tr = document.getElementById("head section");
     getPhoneHeaders(tr);
 
-    // $.ajax({
-    //     url: "http://localhost:8080/api/brand/all",
-    //     dataType: "json"
-    // })
-    //     .done(function (brands) {
-    //         let tbody = document.getElementsByTagName("tbody");
-    //         brands.forEach(brand => addArticleToList(tbody,brand));
-    //     })
+    $.ajax({
+        url: "http://localhost:8080/api/phone/all",
+        dataType: "json"
+    })
+        .done(function (phones) {
+            let tbody = document.getElementById("records section");
+            while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+            phones.forEach(phone => addPhoneRecordToList(tbody,phone));
+                })
+        .always(function (phones) {
+            if(phones.length === 0){
+                let tbody = document.getElementById("records section");
+                if(tbody.children.length===0) {
+                    let info = document.createElement("td");
+                    info.innerHTML = "Nie ma żadnych elementów w bazie";
+                    tbody.appendChild(info);
+                }
+            }
+        })
+}
 
+function addPhoneRecordToList(tbody,phone) {
+    let tr = document.createElement("tr");
+
+    let number = document.createElement("td");
+    number.innerHTML = tbody.children.length+1;
+
+    let brandName = document.createElement("td");
+    let brandLink = document.createElement("a");
+    brandLink.href = "#";
+    brandLink.innerHTML = phone.brand.name;
+    brandName.appendChild(brandLink);
+
+    let phoneName = document.createElement("td");
+    phoneName.innerHTML = phone.name;
+
+    let price = document.createElement("td");
+    price.innerHTML = phone.price;
+
+    let add = document.createElement("td");
+
+    let edit = document.createElement("td");
+    let editLink = document.createElement("a");
+    editLink.href="#";
+    editLink.className = "btn btn-sm manage";
+    editLink.innerHTML = "Edytuj";
+    edit.appendChild(editLink);
+
+    let deleteElem = document.createElement("td");
+    let deleteInput = document.createElement("input");
+    deleteInput.type = "checkbox";
+    deleteInput.name = "options[]";
+    deleteInput.value = phone.id;
+    deleteElem.appendChild(deleteInput);
+
+    addPhoneDataToRecord(tbody,tr,number,brandName,phoneName,price,add,edit,deleteElem);
+}
+
+function addPhoneDataToRecord(tbody,tr,number,brandName,phoneName,price,add,edit,deleteElem){
+    tr.appendChild(number);
+    tr.appendChild(brandName);
+    tr.appendChild(phoneName);
+    tr.appendChild(price);
+    tr.appendChild(add);
+    tr.appendChild(edit);
+    tr.appendChild(deleteElem);
+
+    tbody.appendChild(tr);
 }
 
 function getBrandHeaders(tr) {
@@ -110,9 +180,12 @@ function getPhoneHeaders(tr){
     headers[1].innerHTML = "Marka";
     headers[2].innerHTML = "Nazwa";
     if(headers[3].getElementsByTagName("a") !== null) {
-        let th = document.createElement("th");
-        th.innerHTML = "Cena";
-        tr.insertBefore(th,headers[3])
+        if(headers[3].innerHTML !== "Cena"){
+            let th = document.createElement("th");
+            th.innerHTML = "Cena";
+            tr.insertBefore(th,headers[3])
+        }
+
     }
 
     let links = tr.getElementsByTagName("a");
@@ -123,19 +196,13 @@ function getPhoneHeaders(tr){
 
 }
 
+function addSwitchButtons(){
+
+    let smartphones = document.getElementById("smartphones");
+    smartphones.addEventListener("click", e=>getPhones());
+
+    let brands = document.getElementById("brands");
+    brands.addEventListener("click",e=> getBrands());
+}
 
 
-// smartphone
-
-
-    //         <tr data-status="active">
-    //     <td>3</td>
-    //     <td><a href="#">convallissed.com</a></td>
-    // <td><a href="#">convallissed.com</a></td>
-    // <td>United Kingdom</td>
-    // <td></td>
-    // <td><a href="#" class="btn btn-sm manage">Edytuj</a></td>
-    // <td>
-    // <input type="checkbox" name="options[]" value="3">
-    //     </td>
-    //     </tr>
