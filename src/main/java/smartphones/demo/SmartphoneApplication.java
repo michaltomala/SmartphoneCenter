@@ -9,9 +9,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication
 public class SmartphoneApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SmartphoneApplication.class, args);
-    }
+    public static void main(String[] args) { SpringApplication.run(SmartphoneApplication.class, args); }
 
 
 }

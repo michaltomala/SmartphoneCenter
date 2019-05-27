@@ -61,7 +61,7 @@
                 <%--</th>--%>
             <%--</tr>--%>
             </thead>
-            <tbody>
+            <tbody id="records section">
             </tbody>
         </table>
     </div>

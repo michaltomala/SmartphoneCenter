@@ -9,16 +9,69 @@ function getBrands(){
     let tr = document.getElementById("head section");
     getBrandHeaders(tr);
 
-    // $.ajax({
-    //     url: "http://localhost:8080/api/brand/all",
-    //     dataType: "json"
-    // })
-    //     .done(function (brands) {
-    //         let tbody = document.getElementsByTagName("tbody");
-    //         brands.forEach(brand => addArticleToList(tbody,brand));
-    //     })
-
+    $.ajax({
+        url: "http://localhost:8080/api/brand/all",
+        dataType: "json"
+    })
+        .done(function (brands) {
+            let tbody = document.getElementById("records section");
+            brands.forEach(brand => addRecordToList(tbody,brand));
+        })
+        .always(function (brands) {
+            if(brands.size === 0){
+                let tr = document.getElementById("dashboard records");
+                let info = document.createElement("td");
+                info.innerHTML = "Nie ma żadnych elementów w bazie";
+                tr.appendChild(info);
+            }
+        })
 }
+
+function addRecordToList(tbody, brand) {
+    let tr = document.createElement("tr");
+
+    let id = document.createElement("td");
+    id.innerHTML = tbody.children.length+1;
+
+    let name = document.createElement("td");
+    let nameLink = document.createElement("a");
+    nameLink.href = "#";
+    nameLink.innerHTML = brand.name;
+    name.appendChild(nameLink);
+
+    let smartphoneNumber = document.createElement("td");
+    smartphoneNumber.innerHTML = brand.phones.length;
+
+    let add = document.createElement("td");
+
+    let edit = document.createElement("td");
+    let editLink = document.createElement("a");
+    editLink.href="#";
+    editLink.className = "btn btn-sm manage";
+    editLink.innerHTML = "Edytuj";
+    edit.appendChild(editLink);
+
+    let deleteElem = document.createElement("td");
+    let deleteInput = document.createElement("input");
+    deleteInput.type = "checkbox";
+    deleteInput.name = "options[]";
+    deleteInput.value = brand.id;
+    deleteElem.appendChild(deleteInput);
+
+    addBrandDataToRecord(tbody,tr,id,name,smartphoneNumber,add,edit,deleteElem);
+}
+
+function addBrandDataToRecord(tbody,tr,id,name,smartphoneNumber,add,edit,deleteElem) {
+    tr.appendChild(id);
+    tr.appendChild(name);
+    tr.appendChild(smartphoneNumber);
+    tr.appendChild(add);
+    tr.appendChild(edit);
+    tr.appendChild(deleteElem);
+
+    tbody.appendChild(tr);
+}
+
 
 function getPhones(){
 
@@ -69,23 +122,6 @@ function getPhoneHeaders(tr){
     }
 
 }
-    // brand
-
-
-
-    //         <tbody>
-    //         <tr data-status="active">
-    //     <td>1</td>
-    //     <td><a href="#">loremvallis.com</a></td>
-    // <td>Buenos Aires</td>
-    // <td></td>
-    // <td><a href="#" class="btn btn-sm manage">Edytuj</a></td>
-    // <td>
-    // <input type="checkbox" name="options[]" value="1">
-    //     </td>
-    //     </tr>
-//         </tbody>
-
 
 
 
