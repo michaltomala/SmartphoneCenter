@@ -18,11 +18,11 @@ function getBrands(){
             brands.forEach(brand => addRecordToList(tbody,brand));
         })
         .always(function (brands) {
-            if(brands.size === 0){
-                let tr = document.getElementById("dashboard records");
+            if(brands.length === 0){
+                let tbody = document.getElementById("records section");
                 let info = document.createElement("td");
                 info.innerHTML = "Nie ma żadnych elementów w bazie";
-                tr.appendChild(info);
+                tbody.appendChild(info);
             }
         })
 }
