@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     getBrands();
     addSwitchButtons();
+    addDeleteEvent();
 });
 
 function getBrands(){
@@ -64,6 +65,7 @@ function addBrandRecordToList(tbody, brand) {
     deleteInput.type = "radio";
     deleteInput.name = "options[]";
     deleteInput.value = brand.id;
+    deleteInput.id = "deleteRadio";
     deleteElem.appendChild(deleteInput);
 
     addBrandDataToRecord(tbody,tr,number,name,smartphoneNumber,add,edit,deleteElem);
@@ -139,8 +141,9 @@ function addPhoneRecordToList(tbody,phone) {
 
     let deleteElem = document.createElement("td");
     let deleteInput = document.createElement("input");
-    deleteInput.type = "checkbox";
+    deleteInput.type = "radio";
     deleteInput.name = "options[]";
+    deleteInput.id = "deleteRadio";
     deleteInput.value = phone.id;
     deleteElem.appendChild(deleteInput);
 
@@ -169,7 +172,7 @@ function getBrandHeaders(tr) {
     let links = tr.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++) {
         if(links[i].className === "btn btn-success") links[i].href = "/admin/brand/create";
-        else if(links[i].className === "btn btn-danger") links[i].href = "/DeleteBrand";
+        else if(links[i].className === "btn btn-danger") links[i].href = "/admin/brand/delete/";
     }
 
 }
@@ -205,4 +208,13 @@ function addSwitchButtons(){
     brands.addEventListener("click",e=> getBrands());
 }
 
+
+function addDeleteEvent(){
+    let deleteLink = document.getElementById("deleteLink");
+    deleteLink.addEventListener("click", function () {
+        let checkedRadioBtn = document.querySelector('input[name="options[]"]:checked');
+        if(checkedRadioBtn==null)deleteLink.href = deleteLink.href+ "0";
+        else deleteLink.href = deleteLink.href+ checkedRadioBtn.value;
+    });
+}
 

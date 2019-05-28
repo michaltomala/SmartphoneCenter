@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import smartphones.demo.entity.Brand;
 import smartphones.demo.service.BrandService;
 import pl.coderslab.model.Err;
@@ -79,13 +76,15 @@ public class BrandAdminController {
         return "redirect:/admin/dashboard";
     }
 
+//todo - secure if brand has phones
 
-
-//    @GetMapping("/delete/{id}")
-//    public String deleteBrand(@PathVariable Long id){
-
-
-        //todo ma usunąć kategorię tylko w przypadku gdy nie ma powiązanych telefonów
+    @GetMapping("/delete/{id}")
+    @ResponseBody
+    public String deleteBrand(@PathVariable Long id){
+        if(id==null) return "zaznacza cos";
+        return "dupa";
+//        todo ma usunąć kategorię tylko w przypadku gdy nie ma powiązanych telefonów
 //        return "redirect:"+request.getContextPath()+"/brand/list";
-//    }
+    }
+
 }
