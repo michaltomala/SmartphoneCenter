@@ -134,7 +134,7 @@ function addPhoneRecordToList(tbody,phone) {
 
     let edit = document.createElement("td");
     let editLink = document.createElement("a");
-    editLink.href="#";
+    editLink.href="/admin/phone/edit/firstStep/"+phone.id;
     editLink.className = "btn btn-sm manage";
     editLink.innerHTML = "Edytuj";
     edit.appendChild(editLink);

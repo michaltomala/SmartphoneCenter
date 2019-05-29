@@ -12,6 +12,7 @@ import smartphones.demo.service.BrandService;
 import smartphones.demo.service.PhoneService;
 import pl.coderslab.model.Err;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -37,9 +38,10 @@ public class PhoneAdminController {
 
 
     @GetMapping("create/firstStep")
-    public String createPhoneFirstStep(Model model) {
+    public String createPhoneFirstStep(Model model,HttpServletRequest request) {
 
         model.addAttribute("phone", new Phone());
+        model.addAttribute("formAction", request.getContextPath() + "/admin/phone/create/firstStep");
         return "admin/phoneFormStep1";
     }
 
@@ -77,6 +79,17 @@ public class PhoneAdminController {
         phoneService.savePhone((Phone) session.getAttribute("phone"),phoneDetails);
         return "redirect:/admin/dashboard";
     }
+
+    @GetMapping("edit/firstStep/{id}")
+    public String edit(@PathVariable Long id, Model model, HttpServletRequest request){
+
+        model.addAttribute("phone",phoneService.findPhone(id));
+        model.addAttribute("formAction", request.getContextPath() + "/admin/phone/edit/firstStep/"+id);
+        return "admin/phoneFormStep1";
+    }
+
+
+
 
     @ModelAttribute("brands")
     public List<Brand> brands(){ return brandService.getAllBrands(); }
