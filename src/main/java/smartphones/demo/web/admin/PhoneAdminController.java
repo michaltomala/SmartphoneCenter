@@ -7,10 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import smartphones.demo.entity.Brand;
 import smartphones.demo.entity.Phone;
+import smartphones.demo.entity.PhoneDetails;
 import smartphones.demo.service.BrandService;
 import smartphones.demo.service.PhoneService;
 import pl.coderslab.model.Err;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -43,11 +45,10 @@ public class PhoneAdminController {
 
 
     @PostMapping("create/firstStep")
-    public String createPhoneFirstStep(Phone phone,Model model){
+    public String createPhoneFirstStep(Phone phone, Model model, HttpSession session){
 
         Err modelErr = new Err();
         phoneService.checkPhone(phone,modelErr);
-// todo - validation to check
 
         if(!modelErr.isEmpty()) {
             for(String err : modelErr.getErrors())model.addAttribute(err,err);
@@ -55,16 +56,23 @@ public class PhoneAdminController {
             return "admin/phoneFormStep1";
         }
 
+        session.setAttribute("phone",phone);
         return "redirect:/admin/phone/create/secondStep";
     }
 
     @GetMapping("create/secondStep")
-    @ResponseBody
-    public String finallyCreateStep(){
-
-        return "dupa";
+    public String finallyCreateStep(Model model){
+// todo validate if phone from session is empty
+        model.addAttribute("phoneDetails",new PhoneDetails());
+        return "admin/phoneFormStep2";
     }
 
+    @PostMapping("create/secondStep")
+    @ResponseBody
+    public String savePhone(PhoneDetails phoneDetails){
+// todo - validate if isFlagship is true and isExFlagship is true
+        return "dupa";
+    }
 
     @ModelAttribute("brands")
     public List<Brand> brands(){ return brandService.getAllBrands(); }

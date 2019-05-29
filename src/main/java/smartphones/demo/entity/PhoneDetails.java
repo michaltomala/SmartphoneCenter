@@ -20,6 +20,9 @@ public class PhoneDetails {
     @NotNull
     private boolean isExFlagship;
 
+    @NotNull
+    private boolean nfc;
+
     @OneToOne(mappedBy = "phoneDetails" , cascade = CascadeType.REMOVE)
     @JsonManagedReference
     private Phone phone;
@@ -36,21 +39,23 @@ public class PhoneDetails {
         this.id = id;
     }
 
-    public boolean isFlagship() {
-        return isFlagship;
-    }
+    public boolean isFlagship() { return isFlagship; }
+    public boolean getIsFlagship() { return isFlagship; }
 
     public void setFlagship(boolean flagship) {
         isFlagship = flagship;
     }
+    public void setIsFlagship(boolean flagship) { isFlagship = flagship; }
 
     public boolean isExFlagship() {
         return isExFlagship;
     }
+    public boolean getIsExFlagship() { return isExFlagship; }
 
     public void setExFlagship(boolean exFlagship) {
         isExFlagship = exFlagship;
     }
+    public void setIsExFlagship(boolean exFlagship) { isExFlagship = exFlagship; }
 
     public Phone getPhone() {
         return phone;
@@ -60,5 +65,10 @@ public class PhoneDetails {
         this.phone = phone;
     }
 
+    public boolean isNfc() { return nfc; }
+    public boolean getIsNfc() { return nfc; }
+
+    public void setNfc(boolean nfc) { this.nfc = nfc; }
+    public void setIsNfc(boolean nfc) { this.nfc = nfc; }
 }
 
