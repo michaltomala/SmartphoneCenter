@@ -42,6 +42,28 @@ section.create-Brand-Form form{
     text-align: center;
 }
 
+
+section.create-Phone-Form{
+    width: 100%;
+    height: auto;
+    background-image: url("../images/Google-Pixel-3-XL.png");
+}
+
+section.create-Phone-Form form{
+    padding-top: 250px;
+    margin-left: 220px;
+    width:350px;
+}
+
+section.create-Phone-Form label{
+    color: #0048cb;
+}
+
+section.create-Phone-Form p{
+    margin-left: 90px;
+}
+
+
 h2 {
     text-align: center;
     font-size: 3.5rem;
@@ -58,6 +80,12 @@ h2.brandForm{
     width:400px;
     margin-left: -90px;
 }
+h2.phoneForm{
+    width:600px;
+    margin-left: -195px;
+}
+
+
 /* Style for admin dashboard */
 
 .table-wrapper {

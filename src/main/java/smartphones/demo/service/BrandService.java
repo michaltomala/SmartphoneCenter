@@ -32,6 +32,8 @@ public class BrandService {
 
     public void save(Brand brand){ brandRepository.save(brand); }
 
+    public void deleteBrand(Brand brand){ brandRepository.delete(brand);}
+
     public void checkName(Brand brand,Err modelErr){
 
         if(brand.getName().equals("")) modelErr.addErr("Empty!");

@@ -133,6 +133,19 @@ public class WebSearchService {
         return phone;
     }
 
+    public static int findPhonePrice(String ceneoLink){
+
+        try {
+            Connection connect = Jsoup.connect(ceneoLink);
+            Document document = connect.get();
+            Element elem = document.select("span.price-int").first();
+            return Integer.parseInt(elem.text());
+
+        }catch (IllegalArgumentException | IOException e){
+            return -1;
+        }
+    }
+
 
     public List<Article> findArticlesFromTabletowo(){
         Connection connect = Jsoup.connect("https://www.tabletowo.pl/");

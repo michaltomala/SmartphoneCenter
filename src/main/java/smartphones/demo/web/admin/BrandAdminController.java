@@ -79,12 +79,18 @@ public class BrandAdminController {
 //todo - secure if brand has phones
 
     @GetMapping("/delete/{id}")
-    @ResponseBody
-    public String deleteBrand(@PathVariable Long id){
-        if(id==null) return "zaznacza cos";
-        return "dupa";
+    public String deleteBrand(@PathVariable Long id,Model model){
+        if(id==0) return "redirect:/admin/dashboard";
+
+        Brand brand = brandService.findBrand(id);
+        if(brand.getPhones().isEmpty()){
+            brandService.deleteBrand(brand);
+            return "redirect:/admin/dashboard";
+        }
+
+        model.addAttribute("deleteErr","Markę można usunąć tylko gdy nie ma powiązanych z nią telefonów !!");
+        return "admin/Dashboard";
 //        todo ma usunąć kategorię tylko w przypadku gdy nie ma powiązanych telefonów
-//        return "redirect:"+request.getContextPath()+"/brand/list";
     }
 
 }
