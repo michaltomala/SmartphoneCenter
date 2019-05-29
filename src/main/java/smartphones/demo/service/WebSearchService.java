@@ -141,7 +141,7 @@ public class WebSearchService {
             Element elem = document.select("span.price-int").first();
             return Integer.parseInt(elem.text());
 
-        }catch (IllegalArgumentException | IOException e){
+        }catch (NullPointerException | IllegalArgumentException | IOException e){
             return -1;
         }
     }
