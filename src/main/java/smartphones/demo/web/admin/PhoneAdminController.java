@@ -61,8 +61,9 @@ public class PhoneAdminController {
     }
 
     @GetMapping("create/secondStep")
-    public String finallyCreateStep(Model model){
+    public String finallyCreateStep(Model model,HttpSession session){
 // todo validate if phone from session is empty
+        if(session.getAttribute("phone")==null) return "redirect:/admin/phone/create/firstStep";
         model.addAttribute("phoneDetails",new PhoneDetails());
         return "admin/phoneFormStep2";
     }
