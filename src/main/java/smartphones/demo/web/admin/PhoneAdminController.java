@@ -62,17 +62,20 @@ public class PhoneAdminController {
 
     @GetMapping("create/secondStep")
     public String finallyCreateStep(Model model,HttpSession session){
-// todo validate if phone from session is empty
         if(session.getAttribute("phone")==null) return "redirect:/admin/phone/create/firstStep";
         model.addAttribute("phoneDetails",new PhoneDetails());
         return "admin/phoneFormStep2";
     }
 
     @PostMapping("create/secondStep")
-    @ResponseBody
-    public String savePhone(PhoneDetails phoneDetails){
-// todo - validate if isFlagship is true and isExFlagship is true
-        return "dupa";
+    public String savePhone(PhoneDetails phoneDetails,Model model,HttpSession session){
+        if(phoneService.checkPhoneDetails(phoneDetails)) {
+            model.addAttribute("flagshipErr","Smartphone nie może być jednocześnie flagowcem i exflagowcem!");
+            return "admin/phoneFormStep2";
+        }
+
+        phoneService.savePhone((Phone) session.getAttribute("phone"),phoneDetails);
+        return "redirect:/admin/dashboard";
     }
 
     @ModelAttribute("brands")

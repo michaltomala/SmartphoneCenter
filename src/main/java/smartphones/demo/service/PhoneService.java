@@ -3,6 +3,8 @@ package smartphones.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import smartphones.demo.entity.Phone;
+import smartphones.demo.entity.PhoneDetails;
+import smartphones.demo.repository.PhoneDetailsRepository;
 import smartphones.demo.repository.PhoneRepository;
 import pl.coderslab.model.Err;
 
@@ -13,10 +15,12 @@ import java.util.List;
 public class PhoneService {
 
     private final PhoneRepository phoneRepository;
+    private final PhoneDetailsRepository phoneDetailsRepository;
 
     @Autowired
-    public PhoneService(PhoneRepository phoneRepository) {
+    public PhoneService(PhoneRepository phoneRepository,PhoneDetailsRepository phoneDetailsRepository) {
         this.phoneRepository = phoneRepository;
+        this.phoneDetailsRepository = phoneDetailsRepository;
     }
 
     public Phone findPhone(String phone){ return phoneRepository.findFirstByName(phone); }
@@ -25,6 +29,12 @@ public class PhoneService {
     public List<Phone> getAllExFlagships(){ return phoneRepository.findAllByPhoneDetails_IsExFlagship(true); }
 
     public void savePhone(Phone phone) { phoneRepository.save(phone); }
+    public void savePhone(Phone phone,PhoneDetails phoneDetails){
+        phoneDetailsRepository.save(phoneDetails);
+        phone.setPhoneDetails(phoneDetails);
+        phoneRepository.save(phone);
+    }
+
 
     public void checkPhone(Phone phone,Err modelErr){
 
@@ -42,6 +52,12 @@ public class PhoneService {
         Phone phoneToCheck = phoneRepository.findFirstByName(phone.getName());
         if(phoneToCheck!=null) modelErr.addErr("phoneErr");
     }
+
+
+    public boolean checkPhoneDetails(PhoneDetails phoneDetails){
+        return phoneDetails.isFlagship() && phoneDetails.isExFlagship();
+    }
+
 
 
 }

@@ -27,15 +27,14 @@
         <h2 class="phoneForm">Dodaj nowy Smartphone 2/2</h2>
 
         <div class="form-check">
+            <c:if test="${not empty flagshipErr}"><div class="alert alert-danger">${flagshipErr}</div></c:if>
             <div class="form-check form-check-inline">
                 <label>Flagowiec</label>
                 <form:radiobutton path="isFlagship" value="true"></form:radiobutton>
-                <%--<input class="form-check-input" type="radio" value="option1">--%>
                 <label class="form-check-label" >Tak</label>
             </div>
             <div class="form-check form-check-inline">
                 <form:radiobutton path="isFlagship" value="false"></form:radiobutton>
-                <%--<input class="form-check-input" type="radio" value="option2">--%>
                 <label class="form-check-label" >Nie</label>
             </div>
         </div>
@@ -44,12 +43,10 @@
             <div class="form-check form-check-inline">
                 <label>ExFlagowiec</label>
                 <form:radiobutton path="isExFlagship" value="true"></form:radiobutton>
-                <%--<input class="form-check-input" type="radio" value="option2">--%>
                 <label class="form-check-label" >Tak</label>
             </div>
             <div class="form-check form-check-inline">
                 <form:radiobutton path="isExFlagship" value="false"></form:radiobutton>
-                <%--<input class="form-check-input" type="radio" value="option2">--%>
                 <label class="form-check-label" >Nie</label>
             </div>
         </div>
@@ -58,12 +55,10 @@
             <div class="form-check form-check-inline">
                 <label>NFC</label>
                 <form:radiobutton path="nfc" value="true"></form:radiobutton>
-                <%--<input class="form-check-input" type="radio" value="option1">--%>
                 <label class="form-check-label" >Tak</label>
             </div>
             <div class="form-check form-check-inline">
                 <form:radiobutton path="nfc" value="false"></form:radiobutton>
-                <%--<input class="form-check-input" type="radio" value="option2">--%>
                 <label class="form-check-label" >Nie</label>
             </div>
         </div>
