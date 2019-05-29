@@ -1,5 +1,7 @@
 package smartphones.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -20,8 +22,9 @@ public class Brand {
     private String name;
 
 
-    @OneToMany(mappedBy = "brand" , fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER)
+//    @JsonBackReference
+    @JsonIgnoreProperties(value = "brand", allowSetters=true)
     private List<Phone> phones = new ArrayList<>();
 
 

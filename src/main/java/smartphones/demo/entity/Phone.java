@@ -2,6 +2,8 @@ package smartphones.demo.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -33,13 +35,15 @@ public class Phone {
     @JsonBackReference
     private PhoneDetails phoneDetails;
 
+
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "brand_id")
-    @JsonBackReference
+//    @JsonManagedReference
+    @JsonIgnoreProperties(value = "phones", allowSetters=true)
     private Brand brand;
 
-    @ManyToMany(mappedBy = "phones")
+    @ManyToMany(mappedBy = "phones",fetch = FetchType.EAGER)
     private List<User> users;
 
     public Phone() {
