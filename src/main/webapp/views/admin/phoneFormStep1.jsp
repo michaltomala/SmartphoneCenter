@@ -28,8 +28,12 @@
         <div class="form-group">
             <label class="brandLabel">Marka</label>
             <form:select path="brand"  class="form-control">
-                <option value="0" ><c:if test="${not empty phone.brand}">${phone.brand.name}</c:if>
-                    <c:if test="${empty phone.brand}">Wybierz -</c:if> </option>
+                    <c:if test="${not empty phone.brand}">
+                        <option value="${phone.brand.id}" >${phone.brand.name}</option>
+                    </c:if>
+                    <c:if test="${empty phone.brand}">
+                        <option value="0" >Wybierz -</option>
+                    </c:if>
                 <c:forEach items="${brands}" var="brand">
                     <form:option value="${brand.id}">${brand.name}</form:option>
                 </c:forEach>

@@ -40,19 +40,26 @@ public class PhoneService {
 
     public void checkPhone(Phone phone,Err modelErr){
 
-        if(phone.getBrand() ==null) modelErr.addErr("brandErr");
-        checkName(phone,modelErr);
-        if(phone.getPrice()<299 || phone.getPrice()>10000) modelErr.addErr("priceErr");
-        int price = WebSearchService.findPhonePrice(phone.getCeneoUrl());
-        if(price <299 || price>10000) modelErr.addErr("LinkErr");
-
-    }
-
-    public void checkName(Phone phone,Err modelErr){
-
         if(phone.getName().equals("")) modelErr.addErr("phoneErr");
         Phone phoneToCheck = phoneRepository.findFirstByName(phone.getName());
         if(phoneToCheck!=null) modelErr.addErr("phoneErr");
+        checkBrandPriceAndCeneoLink(phone, modelErr);
+
+    }
+
+    public void checkPhoneDuringEdit(Phone phone,Err modelErr){
+
+        if(phone.getName().equals("")) modelErr.addErr("phoneErr");
+        Phone phoneToCheck = phoneRepository.findFirstByName(phone.getName());
+        if(phoneToCheck!=null && phoneToCheck.getId() != phone.getId()) modelErr.addErr("phoneErr");
+        checkBrandPriceAndCeneoLink(phone, modelErr);
+    }
+
+    private void checkBrandPriceAndCeneoLink(Phone phone, Err modelErr) {
+        if(phone.getBrand() ==null) modelErr.addErr("brandErr");
+        if (phone.getPrice() < 299 || phone.getPrice() > 10000) modelErr.addErr("priceErr");
+        int price = WebSearchService.findPhonePrice(phone.getCeneoUrl());
+        if (price < 299 || price > 10000) modelErr.addErr("LinkErr");
     }
 
 
