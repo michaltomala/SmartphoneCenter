@@ -46,9 +46,6 @@
                 <th>
                     <a href="/admin/brand/delete/" class="btn btn-danger" id="deleteLink"><i class="material-icons"></i><span>Usuń</span></a>
                 </th>
-                <c:if test="${not empty deleteErr}">
-                    <th>${deleteErr}</th>
-                </c:if>
             </tr>
 
             <%--<tr id="head section">--%>

@@ -10,6 +10,7 @@ import smartphones.demo.service.BrandService;
 import pl.coderslab.model.Err;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -76,10 +77,9 @@ public class BrandAdminController {
         return "redirect:/admin/dashboard";
     }
 
-//todo - secure if brand has phones
 
     @GetMapping("/delete/{id}")
-    public String deleteBrand(@PathVariable Long id,Model model){
+    public String deleteBrand(@PathVariable Long id){
         if(id==0) return "redirect:/admin/dashboard";
 
         Brand brand = brandService.findBrand(id);
@@ -88,9 +88,7 @@ public class BrandAdminController {
             return "redirect:/admin/dashboard";
         }
 
-        model.addAttribute("deleteErr","Markę można usunąć tylko gdy nie ma powiązanych z nią telefonów !!");
-        return "admin/Dashboard";
-//        todo ma usunąć kategorię tylko w przypadku gdy nie ma powiązanych telefonów
+        return "redirect:/admin/dashboard";
     }
 
 }
