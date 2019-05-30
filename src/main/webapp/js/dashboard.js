@@ -194,7 +194,7 @@ function getPhoneHeaders(tr){
     let links = tr.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++) {
         if(links[i].className === "btn btn-success") links[i].href = "/admin/phone/create/firstStep";
-        else if(links[i].className === "btn btn-danger") links[i].href = "/DeletePhone";
+        else if(links[i].className === "btn btn-danger") links[i].href = "/admin/phone/delete/";
     }
 
 }

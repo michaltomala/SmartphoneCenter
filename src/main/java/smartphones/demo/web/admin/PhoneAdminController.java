@@ -137,7 +137,7 @@ public class PhoneAdminController {
 
 
     @GetMapping("/delete/{id}")
-    public String deleteBrand(@PathVariable Long id,Model model){
+    public String deletePhone(@PathVariable Long id,Model model){
 
         if(id==0) return "redirect:/admin/dashboard";
         phoneService.deletePhone(id);
