@@ -67,6 +67,6 @@ public class PhoneService {
         return phoneDetails.isFlagship() && phoneDetails.isExFlagship();
     }
 
-
+    public void deletePhone(Long id){ phoneRepository.delete(findPhone(id)); }
 
 }
