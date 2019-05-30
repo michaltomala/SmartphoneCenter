@@ -24,7 +24,9 @@
                modelAttribute="phone"
                cssClass="container col-2" >
 
-        <h2 class="phoneForm">Dodaj nowy Smartphone 1/2</h2>
+        <c:if test="${empty phone.id}"><h2 class="phoneForm">Dodaj nowy Smartphone 1/2</h2></c:if>
+        <c:if test="${not empty phone.id}"><h2 class="phoneForm">Edytuj Smartphone 1/2</h2></c:if>
+
         <div class="form-group">
             <label class="brandLabel">Marka</label>
             <form:select path="brand"  class="form-control">

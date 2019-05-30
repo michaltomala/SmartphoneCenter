@@ -19,6 +19,7 @@
 <%@include file="../header.jsp"%>
 
 <section class="create-Phone-Form">
+    <div class="create-Phone-SecondForm">
     <form:form method="post"
                action="${pageContext.request.contextPath}/admin/phone/create/secondStep"
                modelAttribute="phoneDetails"
@@ -26,38 +27,31 @@
 
         <h2 class="phoneForm">Dodaj nowy Smartphone 2/2</h2>
 
-        <div class="form-check">
-            <c:if test="${not empty flagshipErr}"><div class="alert alert-danger">${flagshipErr}</div></c:if>
-            <div class="form-check form-check-inline">
-                <label>Flagowiec</label>
-                <form:radiobutton path="isFlagship" value="true"></form:radiobutton>
+        <c:if test="${not empty flagshipErr}"><div class="alert alert-danger">${flagshipErr}</div></c:if>
+
+        <div class="create-Phone-Buttons">
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary btn-lg" disabled>Flagowiec</button>
+                <form:radiobutton path="isFlagship" value="true" class="btn btn-outline-success"></form:radiobutton>
                 <label class="form-check-label" >Tak</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <form:radiobutton path="isFlagship" value="false"></form:radiobutton>
+                <form:radiobutton path="isFlagship" value="false" class="btn btn-outline-dark"></form:radiobutton>
                 <label class="form-check-label" >Nie</label>
             </div>
         </div>
-
-        <div class="form-check">
-            <div class="form-check form-check-inline">
-                <label>ExFlagowiec</label>
+        <div class="create-Phone-Buttons">
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary btn-lg" disabled>ExFlagowiec</button>
                 <form:radiobutton path="isExFlagship" value="true"></form:radiobutton>
                 <label class="form-check-label" >Tak</label>
-            </div>
-            <div class="form-check form-check-inline">
                 <form:radiobutton path="isExFlagship" value="false"></form:radiobutton>
                 <label class="form-check-label" >Nie</label>
             </div>
         </div>
-
-        <div class="form-check">
-            <div class="form-check form-check-inline">
-                <label>NFC</label>
+        <div class="create-Phone-Buttons">
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary btn-lg" disabled>NFC</button>
                 <form:radiobutton path="nfc" value="true"></form:radiobutton>
                 <label class="form-check-label" >Tak</label>
-            </div>
-            <div class="form-check form-check-inline">
                 <form:radiobutton path="nfc" value="false"></form:radiobutton>
                 <label class="form-check-label" >Nie</label>
             </div>
@@ -68,6 +62,7 @@
         </p>
 
     </form:form>
+    </div>
 </section>
 
 

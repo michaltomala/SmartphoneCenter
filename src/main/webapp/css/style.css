@@ -45,7 +45,7 @@ section.create-Brand-Form form{
 
 section.create-Phone-Form{
     width: 100%;
-    height: auto;
+    height: 900px;
     background-image: url("../images/Google-Pixel-3-XL.png");
 }
 
@@ -63,6 +63,14 @@ section.create-Phone-Form p{
     margin-left: 90px;
 }
 
+div.create-Phone-SecondForm{
+    margin-left: 750px;
+    width:350px;
+}
+
+div.create-Phone-Buttons{
+    width: 500px;
+}
 
 h2 {
     text-align: center;
@@ -82,7 +90,7 @@ h2.brandForm{
 }
 h2.phoneForm{
     width:600px;
-    margin-left: -195px;
+    margin-left: -180px;
 }
 
 

@@ -3,15 +3,12 @@ package smartphones.demo.web.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import smartphones.demo.entity.Brand;
 import smartphones.demo.service.BrandService;
 import pl.coderslab.model.Err;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 
 @Controller
@@ -24,6 +21,8 @@ public class BrandAdminController {
     public BrandAdminController(BrandService brandService) {
         this.brandService = brandService;
     }
+
+
 
     /**
      * Three methods for create ,update and delete brand.
