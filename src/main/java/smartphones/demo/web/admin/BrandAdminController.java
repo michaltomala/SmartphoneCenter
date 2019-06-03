@@ -36,7 +36,6 @@ public class BrandAdminController {
     }
 
     @PostMapping("create")
-//     todo - check if void is working
     public String createBrand(Brand brand,Model model){
 
         Err modelErr = new Err();
@@ -77,7 +76,7 @@ public class BrandAdminController {
     }
 
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("delete/{id}")
     public String deleteBrand(@PathVariable Long id){
         if(id==0) return "redirect:/admin/dashboard";
 
@@ -89,5 +88,15 @@ public class BrandAdminController {
 
         return "redirect:/admin/dashboard";
     }
+
+    @GetMapping("single/{name}")
+    public String singleBrand(@PathVariable String name,Model model){
+
+        if(brandService.findBrand(name)==null) return "redirect:/admin/dashboard";
+        model.addAttribute("brand",brandService.findBrand(name));
+        return "admin/singleBrand";
+    }
+
+
 
 }
