@@ -89,6 +89,7 @@ public class BrandAdminController {
         return "redirect:/admin/dashboard";
     }
 
+//   todo - js and links in view
     @GetMapping("single/{name}")
     public String singleBrand(@PathVariable String name,Model model){
 
