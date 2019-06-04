@@ -44,7 +44,7 @@ function addBrandRecordToList(tbody, brand) {
 
     let name = document.createElement("td");
     let nameLink = document.createElement("a");
-    nameLink.href = "#";
+    nameLink.href = "/admin/brand/single/"+brand.name;
     nameLink.innerHTML = brand.name;
     name.appendChild(nameLink);
 
@@ -120,7 +120,7 @@ function addPhoneRecordToList(tbody,phone) {
 
     let brandName = document.createElement("td");
     let brandLink = document.createElement("a");
-    brandLink.href = "#";
+    brandLink.href = "/admin/brand/single/"+phone.brand.name;
     brandLink.innerHTML = phone.brand.name;
     brandName.appendChild(brandLink);
 
