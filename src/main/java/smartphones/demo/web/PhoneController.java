@@ -2,6 +2,7 @@ package smartphones.demo.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import smartphones.demo.service.PhoneService;
 
 
@@ -16,6 +17,12 @@ public class PhoneController {
         this.phoneService = phoneService;
     }
 
+
+    @GetMapping("/phones")
+    public String brand(){
+
+        return "phones";
+    }
 
 
 }
