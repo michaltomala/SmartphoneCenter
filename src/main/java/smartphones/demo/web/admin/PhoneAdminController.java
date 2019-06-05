@@ -46,8 +46,6 @@ public class PhoneAdminController {
         return "admin/phoneFormStep1";
     }
 
-//    todo - additional request  for single brand - brand checked in form
-
     @GetMapping("create/firstStep")
     public String createPhoneFirstStep(Model model,HttpServletRequest request) {
 
@@ -147,18 +145,6 @@ public class PhoneAdminController {
 
 
 
-//    @GetMapping("singleBrand/delete/{id}")
-//    public String deleteBrand(@PathVariable Long id){
-//        if(id==0) return "redirect:/admin/dashboard";
-//
-//        Brand brand = brandService.findBrand(id);
-//        if(brand.getPhones().isEmpty()){
-//            brandService.deleteBrand(brand);
-//            return "redirect:/admin/dashboard";
-//        }
-//
-//        return "redirect:/admin/dashboard";
-//    }
 
 //    todo - additional redirect from single Brand
     @GetMapping("/delete/{id}")
@@ -167,9 +153,16 @@ public class PhoneAdminController {
         if(id==0) return "redirect:/admin/dashboard";
         phoneService.deletePhone(id);
         return "redirect:/admin/dashboard";
-
     }
 
+
+    @GetMapping("/delete/{id}/{brand}")
+    public String deleteBrand(@PathVariable Long id,@RequestParam(value = "brand") String brandName){
+
+        if(id==0) return "redirect:/admin/brand/single/brand?brand="+brandName;
+        phoneService.deletePhone(id);
+        return "redirect:/admin/brand/single/brand?brand="+brandName;
+    }
 
     @ModelAttribute("brands")
     public List<Brand> brands(){ return brandService.getAllBrands(); }

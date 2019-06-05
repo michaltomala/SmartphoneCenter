@@ -1,16 +1,19 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-    changeCreateLink();
+    changeCreateAndDeleteLink();
     getPhonesFromSingleBrand();
     addDeleteEvent();
 });
 
-function changeCreateLink() {
+function changeCreateAndDeleteLink() {
 
     let createLink = document.getElementById("createLink");
     let brandName= new URLSearchParams(window.location.search);
     brandName.get("brand");
     createLink.href = createLink.href + "/brand?"+brandName;
+
+    let deleteLink =  document.getElementById("deleteLink");
+    deleteLink.href = deleteLink.href + "/brand?"+brandName;
 }
 
 
@@ -89,7 +92,7 @@ function addDeleteEvent(){
     let deleteLink = document.getElementById("deleteLink");
     deleteLink.addEventListener("click", function () {
         let checkedRadioBtn = document.querySelector('input[name="options[]"]:checked');
-        if(checkedRadioBtn==null)deleteLink.href = deleteLink.href+ "0";
-        else deleteLink.href = deleteLink.href+ checkedRadioBtn.value;
+        if(checkedRadioBtn==null)deleteLink.href = deleteLink.href.substring(0,41)+ "0"+deleteLink.href.substring(41);
+        else deleteLink.href = deleteLink.href.substring(0,41) + checkedRadioBtn.value+deleteLink.href.substring(41);
     });
 }
