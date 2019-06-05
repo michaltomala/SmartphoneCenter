@@ -6,16 +6,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-public class HomeController {
+public class ArticleController {
 
 
-    @RequestMapping(path = "/",method = RequestMethod.GET)
-    public String home(){
+    @RequestMapping(path = "/article"+"*",method = RequestMethod.GET)
+    public String singleArticle(){
 
-        return "home";
+        return "singleArticle";
     }
-
-
-
 
 }
