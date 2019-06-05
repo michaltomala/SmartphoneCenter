@@ -16,40 +16,33 @@
 </head>
 <body>
 
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 
-<section class="register">
+<section class="login">
     <form:form method="post"
-               action="${pageContext.request.contextPath}/register"
+               action="${pageContext.request.contextPath}/login"
                modelAttribute="user"
                cssClass="container col-2" >
 
-        <h2 class="auth">Zarejestruj się</h2>
+        <h2 class="auth">Zaloguj się</h2>
         <div class="form-group">
             <form:input path="name" placeholder="Imię" cssClass="form-input"/>
             <form:errors path="name" cssClass="alert alert-danger" element="div" />
-            <c:if test="${not empty nameErr}">
-                <div class="alert alert-danger">${nameErr}</div>
-            </c:if>
         </div>
-
         <div class="form-group">
             <form:password path="password" placeholder="Hasło" cssClass="form-input"/>
             <form:errors path="password" cssClass="alert alert-danger" element="div" />
         </div>
 
         <div class="form-group">
-            <form:password path="repeatedPassword" placeholder="Powtórz Hasło" cssClass="form-input"/>
-            <form:errors path="repeatedPassword" cssClass="alert alert-danger" element="div" />
-            <c:if test="${not empty pwdErr}">
-                <div class="alert alert-danger">${pwdErr}</div>
+            <c:if test="${not empty authErr}">
+                <div class="alert alert-danger">${authErr}</div>
             </c:if>
         </div>
 
-
         <p class="auth">
-            <input type="submit" value="Zarejestruj" class="btn btn-primary">
-            <a href="${pageContext.request.contextPath}/login" class="btn btn-secondary my-2">Zaloguj się</a>
+            <input type="submit" value="Zaloguj" class="btn btn-primary">
+            <a href="${pageContext.request.contextPath}/register" class="btn btn-secondary my-2">Zarejestruj się</a>
         </p>
 
     </form:form>

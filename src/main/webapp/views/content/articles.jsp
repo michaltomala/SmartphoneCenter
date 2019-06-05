@@ -16,8 +16,8 @@
 <body>
 
 
-<%@include file="header.jsp"%>
-PHONES
+<%@include file="../header.jsp"%>
+ARTICLES
 
 </body>
 </html>

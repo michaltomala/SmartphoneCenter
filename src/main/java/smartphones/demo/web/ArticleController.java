@@ -19,7 +19,7 @@ public class ArticleController {
     @GetMapping("/articles")
     public String getArticles(){
 
-        return "articles";
+        return "content/articles";
     }
 
 }

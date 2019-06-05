@@ -16,8 +16,8 @@
 <body>
 
 
-<%@include file="header.jsp"%>
-FLAGSHIPS
+<%@include file="../header.jsp"%>
+EXFLAGSHIPS
 
 </body>
 </html>

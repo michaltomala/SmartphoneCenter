@@ -29,13 +29,13 @@ public class AuthController {
     @GetMapping("/login")
     public String login(Model model){
         model.addAttribute("user", new User());
-        return "login";
+        return "auth/login";
     }
 
     @PostMapping("/login")
     public String login(@Valid User user, BindingResult errors, Model model, HttpSession session){
         if (errors.hasErrors()) {
-            return "login";
+            return "auth/login";
         }
 
         Err modelErr = new Err();
@@ -43,7 +43,7 @@ public class AuthController {
         userService.checkNameAndPassword(user,modelErr);
         if(!modelErr.isEmpty()){
             model.addAttribute("authErr", "Email albo hasło się nie zgadza!");
-            return "login";
+            return "auth/login";
         }
 
         User checkedUser = userService.findUser(user.getName());
@@ -56,8 +56,7 @@ public class AuthController {
     @GetMapping("/register")
     public String register(Model model){
         model.addAttribute("user", new User());
-//      todo - coding problem
-        return "register";
+        return "auth/register";
     }
 
 
@@ -65,7 +64,7 @@ public class AuthController {
     public String register(@Valid User user, BindingResult errors,Model model,HttpSession session){
 
         if (errors.hasErrors()) {
-            return "register";
+            return "auth/register";
         }
 
         Err modelErr = new Err();
@@ -73,13 +72,13 @@ public class AuthController {
         userService.checkPwd(user,modelErr);
         if(!modelErr.isEmpty()){
             model.addAttribute("pwdErr", "Hasła muszą być takie same!");
-            return "register";
+            return "auth/register";
         }
 
         userService.checkIfNameIsUnique(user,modelErr);
         if(!modelErr.isEmpty()){
             model.addAttribute("nameErr", "Taki użytkownik już istnieje !");
-            return "register";
+            return "auth/register";
         }
 
         userService.registerUser((user));

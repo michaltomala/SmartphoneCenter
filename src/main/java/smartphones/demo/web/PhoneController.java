@@ -21,18 +21,18 @@ public class PhoneController {
     @GetMapping("/phones")
     public String getPhones(){
 
-        return "phones";
+        return "content/phones";
     }
 
     @GetMapping("/flagships")
     public String getFlagships(){
 
-        return "flagships";
+        return "content/flagships";
     }
 
     @GetMapping("/exflagships")
     public String getExFlagships(){
 
-        return "exFlagships";
+        return "content/exFlagships";
     }
 }

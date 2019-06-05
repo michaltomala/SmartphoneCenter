@@ -16,8 +16,8 @@
 <body>
 
 
-<%@include file="header.jsp"%>
-EXFLAGSHIPS
+<%@include file="../header.jsp"%>
+PHONES
 
 </body>
 </html>

@@ -16,8 +16,8 @@
 <body>
 
 
-<%@include file="header.jsp"%>
-BRANDS
+<%@include file="../header.jsp"%>
+FLAGSHIPS
 
 </body>
 </html>

@@ -16,8 +16,8 @@
 <body>
 
 
-<%@include file="header.jsp"%>
-ARTICLES
+<%@include file="../header.jsp"%>
+BRANDS
 
 </body>
 </html>

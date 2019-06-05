@@ -20,7 +20,7 @@ public class BrandController {
     @GetMapping("/brands")
     public String getBrands(){
 
-        return "brands";
+        return "content/brands";
     }
 
 }
