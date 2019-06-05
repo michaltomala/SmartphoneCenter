@@ -7,7 +7,7 @@
             <a class="py-2 d-none d-md-inline-block" href="/brands" style="text-decoration: none;">Marki</a>
             <a class="py-2 d-none d-md-inline-block" href="/phones">Wszystkie Smartphony</a>
             <a class="py-2 d-none d-md-inline-block" href="/articles">Artykuły</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Flagowce</a>
+            <a class="py-2 d-none d-md-inline-block" href="/flagships">Flagowce</a>
             <a class="py-2 d-none d-md-inline-block" href="#">ExFlagowce</a>
 
             <a href="/" class="navbar-brand d-flex align-items-center">

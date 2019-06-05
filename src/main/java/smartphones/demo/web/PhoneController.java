@@ -24,5 +24,10 @@ public class PhoneController {
         return "phones";
     }
 
+    @GetMapping("/flagships")
+    public String getFlagships(){
+
+        return "flagships";
+    }
 
 }
