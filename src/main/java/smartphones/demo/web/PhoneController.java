@@ -19,7 +19,7 @@ public class PhoneController {
 
 
     @GetMapping("/phones")
-    public String brand(){
+    public String getPhones(){
 
         return "phones";
     }

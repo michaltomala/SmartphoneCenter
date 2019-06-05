@@ -18,7 +18,7 @@ public class BrandController {
     }
 
     @GetMapping("/brands")
-    public String brand(){
+    public String getBrands(){
 
         return "brands";
     }
