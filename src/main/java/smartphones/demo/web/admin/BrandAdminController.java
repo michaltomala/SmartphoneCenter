@@ -75,7 +75,6 @@ public class BrandAdminController {
         return "redirect:/admin/dashboard";
     }
 
-
     @GetMapping("delete/{id}")
     public String deleteBrand(@PathVariable Long id){
         if(id==0) return "redirect:/admin/dashboard";
@@ -89,9 +88,10 @@ public class BrandAdminController {
         return "redirect:/admin/dashboard";
     }
 
-//   todo - js and links in view
+
+
     @GetMapping("single/{name}")
-    public String singleBrand(@PathVariable String name,Model model){
+    public String singleBrand(@RequestParam(value = "brand") String name,Model model){
 
         if(brandService.findBrand(name)==null) return "redirect:/admin/dashboard";
         model.addAttribute("brand",brandService.findBrand(name));

@@ -37,6 +37,7 @@ public class PhoneAdminController {
      */
 
 
+//    todo - additional request  for single brand - brand checked in form
 
     @GetMapping("create/firstStep")
     public String createPhoneFirstStep(Model model,HttpServletRequest request) {
@@ -136,6 +137,21 @@ public class PhoneAdminController {
     }
 
 
+
+//    @GetMapping("singleBrand/delete/{id}")
+//    public String deleteBrand(@PathVariable Long id){
+//        if(id==0) return "redirect:/admin/dashboard";
+//
+//        Brand brand = brandService.findBrand(id);
+//        if(brand.getPhones().isEmpty()){
+//            brandService.deleteBrand(brand);
+//            return "redirect:/admin/dashboard";
+//        }
+//
+//        return "redirect:/admin/dashboard";
+//    }
+
+//    todo - additional redirect from single Brand
     @GetMapping("/delete/{id}")
     public String deletePhone(@PathVariable Long id,Model model){
 

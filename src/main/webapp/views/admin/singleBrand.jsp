@@ -35,18 +35,22 @@
             <th>Nazwa</th>
             <th>Cena</th>
             <th>
-            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Dodaj</span></a>
+            <a href="/admin/phone/create/firstStep" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Dodaj</span></a>
             </th>
             <th>Edycja</th>
-            <th><a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Usuń</span></a>
+            <th><a href="/admin/phone/delete/" class="btn btn-danger" id="deleteLink"><i class="material-icons"></i> <span>Usuń</span></a>
             </th>
             </tr>
         </thead>
-        <tbody id="records section">
+        <tbody id="phones section">
         </tbody>
     </table>
 </div>
 
-
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="/js/singleBrand.js"></script>
 </body>
 </html>
