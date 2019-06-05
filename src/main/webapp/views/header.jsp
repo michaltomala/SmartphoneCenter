@@ -4,7 +4,7 @@
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
 
-            <a class="py-2 d-none d-md-inline-block" href="#" style="text-decoration: none;">Marki</a>
+            <a class="py-2 d-none d-md-inline-block" href="/brands" style="text-decoration: none;">Marki</a>
             <a class="py-2 d-none d-md-inline-block" href="#">Wszystkie Smartphony</a>
             <a class="py-2 d-none d-md-inline-block" href="#">Artykuły</a>
             <a class="py-2 d-none d-md-inline-block" href="#">Flagowce</a>
