@@ -37,7 +37,7 @@ public class WebSearchService {
             Elements articles = document.getElementsByTag("article");
             for (Element elem : articles) {
                 Article article = new Article();
-
+//                grid-item grid-item--100 align-center
                 if (setUrl(elem, article)) continue;
                 setImage(elem, article);
                 article.setHeader(elem.getElementsByTag("h2").text());
@@ -60,6 +60,7 @@ public class WebSearchService {
         String picture = elem.getElementsByTag("picture").toString();
         int secondStart = picture.indexOf("<img ");
         int secondStop = picture.indexOf(".jpg\" width");
+        if(secondStop==-1) secondStop = picture.indexOf(".png\" width");
         if(secondStop==-1) {
             secondStart = picture.indexOf("data-src");
             secondStop = picture.indexOf(".jpg\" class=\"lazyload\">");
