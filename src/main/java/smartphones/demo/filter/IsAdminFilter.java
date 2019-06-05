@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-//todo -after work on admin pages change abc to *
-@WebFilter(urlPatterns = "/admin/abc")
+@WebFilter(urlPatterns = "/admin/*")
 public class IsAdminFilter implements Filter {
 
     public void destroy() {
