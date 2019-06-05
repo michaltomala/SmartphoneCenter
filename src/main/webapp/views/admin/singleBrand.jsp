@@ -35,7 +35,7 @@
             <th>Nazwa</th>
             <th>Cena</th>
             <th>
-            <a href="/admin/phone/create/firstStep" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Dodaj</span></a>
+            <a href="/admin/phone/create/firstStep" class="btn btn-success" id="createLink"><i class="material-icons"></i> <span>Dodaj</span></a>
             </th>
             <th>Edycja</th>
             <th><a href="/admin/phone/delete/" class="btn btn-danger" id="deleteLink"><i class="material-icons"></i> <span>Usuń</span></a>

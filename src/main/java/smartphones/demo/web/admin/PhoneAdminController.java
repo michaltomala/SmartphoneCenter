@@ -36,6 +36,15 @@ public class PhoneAdminController {
      * Three methods for create ,update and delete phone.
      */
 
+    @GetMapping("create/firstStep/{brand}")
+    public String createPhoneWithBrandSelected(@RequestParam(value = "brand") String brand, Model model,HttpServletRequest request) {
+
+        Phone phone = new Phone();
+        phone.setBrand(brandService.findBrand(brand));
+        model.addAttribute("phone",phone);
+        model.addAttribute("formAction", request.getContextPath() + "/admin/phone/create/firstStep");
+        return "admin/phoneFormStep1";
+    }
 
 //    todo - additional request  for single brand - brand checked in form
 

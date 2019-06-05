@@ -1,8 +1,17 @@
 document.addEventListener("DOMContentLoaded", function(){
 
+    changeCreateLink();
     getPhonesFromSingleBrand();
     addDeleteEvent();
 });
+
+function changeCreateLink() {
+
+    let createLink = document.getElementById("createLink");
+    let brandName= new URLSearchParams(window.location.search);
+    brandName.get("brand");
+    createLink.href = createLink.href + "/brand?"+brandName;
+}
 
 
 function getPhonesFromSingleBrand(){
