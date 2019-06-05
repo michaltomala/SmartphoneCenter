@@ -30,4 +30,9 @@ public class PhoneController {
         return "flagships";
     }
 
+    @GetMapping("/exflagships")
+    public String getExFlagships(){
+
+        return "exFlagships";
+    }
 }
