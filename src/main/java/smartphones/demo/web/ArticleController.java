@@ -16,7 +16,6 @@ public class ArticleController {
         return "singleArticle";
     }
 
-//    todo - fix gradient
     @GetMapping("/articles")
     public String getArticles(){
 
