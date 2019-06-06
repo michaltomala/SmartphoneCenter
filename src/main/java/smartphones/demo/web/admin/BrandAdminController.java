@@ -89,7 +89,7 @@ public class BrandAdminController {
     }
 
 
-
+// todo - if brand has no phone there must be information about it
     @GetMapping("single/{name}")
     public String singleBrand(@RequestParam(value = "brand") String name,Model model){
 

@@ -28,7 +28,6 @@ public class ArticleRestController {
     @RequestMapping(path = "komorkomania",method = RequestMethod.GET)
     public String findArticlesFromKomorkomania(){
 
-        // todo - bug with event - for example mvc - doesn't see articles
         List<Article> articles = webSearchService.findArticlesFromKomorkomania();
         ObjectMapper mapper = new ObjectMapper();
 

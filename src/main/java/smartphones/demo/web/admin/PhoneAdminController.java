@@ -145,8 +145,6 @@ public class PhoneAdminController {
 
 
 
-
-//    todo - additional redirect from single Brand
     @GetMapping("/delete/{id}")
     public String deletePhone(@PathVariable Long id,Model model){
 

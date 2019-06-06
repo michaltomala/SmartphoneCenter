@@ -72,6 +72,18 @@ div.create-Phone-Buttons{
     width: 500px;
 }
 
+div.album.py-5.bg-light{
+    /*text-align:center;*/
+    /*width:70%;*/
+    /*margin:0 auto;*/
+    /*padding:50px;*/
+    /*border:5px solid #000;*/
+    background-image:linear-gradient(to left, gold, transparent, gold),
+    linear-gradient(45deg, white, green, white);
+
+    /*background-image: radial-gradient (circle,red,yellow);*/
+}
+
 h2 {
     text-align: center;
     font-size: 3.5rem;

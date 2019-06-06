@@ -17,7 +17,25 @@
 
 
 <%@include file="../header.jsp"%>
-ARTICLES
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <h2 class="jumbotron-heading">Artykuły</h2>
+            <div class="row" id="articles" >
+            </div>
+            <div class="row" >
+                <h2 class="jumbotron-heading" >#W skrócie</h2>
+                <div class="list-group" id="InShort">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="../js/articles.js"></script>
 
 </body>
 </html>

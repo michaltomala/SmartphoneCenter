@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 
+//    todo - linear gradient in landing page
     @RequestMapping(path = "/",method = RequestMethod.GET)
     public String home(){
 
