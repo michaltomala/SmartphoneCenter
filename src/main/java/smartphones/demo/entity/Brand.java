@@ -23,7 +23,6 @@ public class Brand {
 
 
     @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER)
-//    @JsonBackReference
     @JsonIgnoreProperties(value = "brand", allowSetters=true)
     private List<Phone> phones = new ArrayList<>();
 
