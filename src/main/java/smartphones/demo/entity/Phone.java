@@ -39,7 +39,6 @@ public class Phone {
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "brand_id")
-//    @JsonManagedReference
     @JsonIgnoreProperties(value = "phones", allowSetters=true)
     private Brand brand;
 

@@ -27,7 +27,7 @@
 
         <h2 class="phoneForm">Dodaj nowy Smartphone 2/2</h2>
 
-        <c:if test="${not empty flagshipErr}"><div class="alert alert-danger">${flagshipErr}</div></c:if>
+        <c:if test="${not empty flagshipErr}"><div class="alert alert-danger" style="width: 400px">${flagshipErr}</div></c:if>
 
         <div class="create-Phone-Buttons">
             <div class="form-group">

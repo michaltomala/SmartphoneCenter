@@ -17,7 +17,8 @@
 
 
 <%@include file="../header.jsp"%>
-PHONES
+<c:forEach items="${phones}" var="phone">${phone.id} && ${phone.name} && ${phone.price}</c:forEach>
+
 
 </body>
 </html>
