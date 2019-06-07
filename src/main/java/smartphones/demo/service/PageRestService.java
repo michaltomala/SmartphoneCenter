@@ -43,6 +43,13 @@ public class PageRestService {
         return Arrays.stream(phonesBody).collect(Collectors.toList());
     }
 
+    public Phone[] getAllFlagships(){
+
+        ResponseEntity<Phone[]> forEntity = restTemplate.getForEntity(allFlagshipsUrl,Phone[].class);
+        Phone[] body = forEntity.getBody();
+        if (body==null) return null;
+        return body;
+    }
 
 
 }

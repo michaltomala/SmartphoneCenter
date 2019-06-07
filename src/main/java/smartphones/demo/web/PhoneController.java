@@ -28,8 +28,9 @@ public class PhoneController {
     }
 
     @GetMapping("/flagships")
-    public String getFlagships(){
+    public String getFlagships(Model model){
 
+        model.addAttribute("flagships",pageRestService.getAllFlagships());
         return "content/flagships";
     }
 
