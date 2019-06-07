@@ -17,7 +17,7 @@
 
 
 <%@include file="../header.jsp"%>
-EXFLAGSHIPS
+<c:forEach items="${exflagships}" var="phone">${phone.id} && ${phone.name} && ${phone.price}</c:forEach>
 
 </body>
 </html>

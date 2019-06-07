@@ -45,11 +45,18 @@ public class PageRestService {
 
     public Phone[] getAllFlagships(){
 
-        ResponseEntity<Phone[]> forEntity = restTemplate.getForEntity(allFlagshipsUrl,Phone[].class);
-        Phone[] body = forEntity.getBody();
-        if (body==null) return null;
-        return body;
+        return getAndReturnArray(allFlagshipsUrl);
     }
 
+    public Phone[] getAllExFlagships(){
 
+        return getAndReturnArray(allExFlagshipsUrl);
+    }
+
+    private Phone[] getAndReturnArray(String url) {
+        ResponseEntity<Phone[]> forEntity = restTemplate.getForEntity(url, Phone[].class);
+        Phone[] body = forEntity.getBody();
+        if (body == null) return null;
+        return body;
+    }
 }
