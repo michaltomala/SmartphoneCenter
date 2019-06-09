@@ -43,12 +43,18 @@ public class BrandService {
     }
 
     public void checkNameDuringEdit(Brand brand,Err modelErr){
-        if(brand.getName().equals("")) modelErr.addErr("Empty!");
 
+        if(brand.getName().equals("")) modelErr.addErr("Empty!");
         Brand brandToCheck = brandRepository.findFirstByName(brand.getName());
-        if(brandToCheck!=null && brandToCheck.getId() != brand.getId()){
-            modelErr.addErr("Not unique!");
-        }
+        if(brandToCheck!=null && brandToCheck.getId() != brand.getId()) modelErr.addErr("Not unique!");
     }
+
+    public void checkOriginalityImage(Brand brand,Err modelErr){
+
+        if(brand.getImage().equals("")) modelErr.addErr("Empty!");
+        Brand brandToCheck = brandRepository.findFirstByImage(brand.getImage());
+        if(brandToCheck!= null && brandToCheck.getId() != brand.getId()) modelErr.addErr("Not unique!");
+    }
+
 }
 

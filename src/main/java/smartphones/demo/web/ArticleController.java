@@ -16,6 +16,8 @@ public class ArticleController {
         return "singleArticle";
     }
 
+
+//    todo - ajax method .fail if connection lost + add this to landing page
     @GetMapping("/articles")
     public String getArticles(){
 

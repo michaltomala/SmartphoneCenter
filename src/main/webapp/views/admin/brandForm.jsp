@@ -29,16 +29,21 @@
         <div class="form-group">
             <form:input path="name" placeholder="nazwa" cssClass="form-input"/>
         </div>
+
         <div class="form-group">
-            <c:if test="${not empty brandErr}">
-                <div class="alert alert-danger">${brandErr}</div>
-            </c:if>
+            <form:input path="image" placeholder="logo" cssClass="form-input"/>
         </div>
 
         <p class="auth">
             <input type="submit" value="Zapisz" class="btn btn-primary">
         </p>
 
+
+        <div class="form-group">
+            <c:if test="${not empty brandErr}">
+                <div class="alert alert-danger">${brandErr}</div>
+            </c:if>
+        </div>
     </form:form>
 </section>
 

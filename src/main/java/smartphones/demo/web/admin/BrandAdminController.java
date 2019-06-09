@@ -41,8 +41,9 @@ public class BrandAdminController {
         Err modelErr = new Err();
 
         brandService.checkName(brand,modelErr);
+        brandService.checkOriginalityImage(brand,modelErr);
         if (!modelErr.isEmpty()) {
-            model.addAttribute("brandErr", "Nazwa nie może być pusta oraz musi być unikalna!");
+            model.addAttribute("brandErr", "Nazwa oraz link do logo nie może być pusta oraz musi być unikalna!");
             model.addAttribute("brand", new Brand());
             return "admin/brandForm";
         }

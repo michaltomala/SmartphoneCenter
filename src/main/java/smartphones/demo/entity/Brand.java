@@ -21,6 +21,7 @@ public class Brand {
     @Column(unique = true)
     private String name;
 
+    @NotEmpty
     @Column(unique = true)
     private String image;
 

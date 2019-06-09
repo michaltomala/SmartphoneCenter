@@ -12,4 +12,6 @@ public interface BrandRepository extends JpaRepository<Brand, Long> {
     List<Brand> findAllByOrderByNameAsc();
     Brand findFirstById(Long id);
     Brand findFirstByName(String name);
+    Brand findFirstByImage(String image);
+
 }
