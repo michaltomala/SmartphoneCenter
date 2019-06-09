@@ -37,7 +37,7 @@ public class PhoneController {
     @GetMapping("/exflagships")
     public String getExFlagships(Model model){
 
-        model.addAttribute("flagships",pageRestService.getAllExFlagships());
+        model.addAttribute("exflagships",pageRestService.getAllExFlagships());
         return "content/exFlagships";
     }
 }

@@ -21,6 +21,9 @@ public class Brand {
     @Column(unique = true)
     private String name;
 
+    @Column(unique = true)
+    private String image;
+
 
     @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER)
     @JsonIgnoreProperties(value = "brand", allowSetters=true)
@@ -54,4 +57,13 @@ public class Brand {
     public void setPhones(List<Phone> phones) {
         this.phones = phones;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
+

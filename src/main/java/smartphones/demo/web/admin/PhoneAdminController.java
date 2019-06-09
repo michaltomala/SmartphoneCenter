@@ -31,7 +31,7 @@ public class PhoneAdminController {
         this.brandService = brandService;
     }
 
-
+// todo - first step form (create and edit) - validate ceneoUrl - must be unique
     /**
      * Three methods for create ,update and delete phone.
      */
