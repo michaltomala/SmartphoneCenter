@@ -17,3 +17,4 @@
 
 
 <%@include file="../header.jsp"%>
+${brand.name}

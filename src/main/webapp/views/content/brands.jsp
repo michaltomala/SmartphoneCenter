@@ -37,9 +37,8 @@
             <c:forEach items="${brands}" var="brand">
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                    <a href="#">
+                    <a href="/singleBrand/${brand.name}">
                         <img class="card-img-top" src="${brand.image}">
-                        <%--<p class="card-text">${brand.name}</p>--%>
                     </a>
                 </div>
             </div>

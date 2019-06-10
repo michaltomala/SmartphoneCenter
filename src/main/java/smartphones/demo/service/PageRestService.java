@@ -59,4 +59,13 @@ public class PageRestService {
         if (body == null) return null;
         return body;
     }
+
+    public Brand getBrand(String name){
+
+        String url = "http://localhost:8080/api/brand/"+name;
+        ResponseEntity<Brand> forEntity = restTemplate.getForEntity(url, Brand.class);
+        Brand body = forEntity.getBody();
+        if(body==null) return null;
+        return body;
+    }
 }

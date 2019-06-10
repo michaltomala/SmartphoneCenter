@@ -37,7 +37,7 @@ public class BrandRestController {
     }
 
     @RequestMapping(path = "{name}" , method = RequestMethod.GET)
-    public String singleBrand(@RequestParam(value = "brand") String name){
+    public String singleBrand(@PathVariable String name){
 
         List<Phone> singleBrand = brandService.getAllPhonesFromSingleBrand(name);
         ObjectMapper mapper = new ObjectMapper();
