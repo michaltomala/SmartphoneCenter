@@ -20,10 +20,11 @@ function changeCreateAndDeleteLink() {
 function getPhonesFromSingleBrand(){
 
     let brandName= new URLSearchParams(window.location.search);
-    brandName.get("brand");
-
+    let url = "http://localhost:8080/api/brand/"+brandName.get("brand");
+    //32
+    // brand
     $.ajax({
-        url: "http://localhost:8080/api/brand/brand?"+brandName,
+        url: url,
         dataType: "json"
     })
         .done(function (phones) {
