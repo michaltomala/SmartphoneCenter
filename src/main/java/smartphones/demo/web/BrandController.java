@@ -31,7 +31,7 @@ public class BrandController {
     @GetMapping("/singleBrand/{name}")
     public String singleBrand(@PathVariable String name,Model model){
 
-        model.addAttribute("brand",pageRestService.getBrand(name));
+        model.addAttribute("phones",pageRestService.getBrand(name));
         return "content/singleBrand";
     }
 

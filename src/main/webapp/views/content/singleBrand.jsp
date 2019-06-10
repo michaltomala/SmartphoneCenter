@@ -17,4 +17,4 @@
 
 
 <%@include file="../header.jsp"%>
-${brand.name}
+<c:forEach items="${phones}" var="phone">${phone.brand.name}</c:forEach>

@@ -54,18 +54,21 @@ public class PageRestService {
     }
 
     private Phone[] getAndReturnArray(String url) {
+        return getAndReturnPhones(url);
+    }
+
+
+    public Phone[] getBrand(String name){
+
+        String url = "http://localhost:8080/api/brand/"+name;
+        return getAndReturnPhones(url);
+    }
+
+
+    private Phone[] getAndReturnPhones(String url) {
         ResponseEntity<Phone[]> forEntity = restTemplate.getForEntity(url, Phone[].class);
         Phone[] body = forEntity.getBody();
         if (body == null) return null;
-        return body;
-    }
-
-    public Brand getBrand(String name){
-
-        String url = "http://localhost:8080/api/brand/"+name;
-        ResponseEntity<Brand> forEntity = restTemplate.getForEntity(url, Brand.class);
-        Brand body = forEntity.getBody();
-        if(body==null) return null;
         return body;
     }
 }
