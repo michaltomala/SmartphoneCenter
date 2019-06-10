@@ -31,6 +31,10 @@ public class Phone {
     @Column(unique = true)
     private String ceneoUrl;
 
+    @NotEmpty
+    @Column(unique = true)
+    private String image;
+
     @OneToOne(optional = false , cascade = CascadeType.REMOVE)
     @JsonBackReference
     private PhoneDetails phoneDetails;
@@ -102,5 +106,13 @@ public class Phone {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
