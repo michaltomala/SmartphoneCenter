@@ -71,6 +71,14 @@
             <div class="alert alert-danger">Nieprawidłowy lub pusty link!</div>
         </c:if>
 
+        <div class="form-group col-md-6">
+            <label>Wygląd</label>
+            <form:input path="image" placeholder="Zdjęcie" cssClass="form-input"/>
+        </div>
+        <c:if test="${not empty imageErr}">
+            <div class="alert alert-danger">Nieprawidłowy lub pusty link!</div>
+        </c:if>
+
         <p class="create-phone-form">
             <input type="submit" value="Dodaj" class="btn btn-primary">
         </p>

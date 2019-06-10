@@ -43,8 +43,11 @@ public class PhoneService {
         if(phone.getName().equals("")) modelErr.addErr("phoneErr");
         Phone phoneToCheck = phoneRepository.findFirstByName(phone.getName());
         if(phoneToCheck!=null) modelErr.addErr("phoneErr");
-        checkBrandPriceAndCeneoLink(phone, modelErr);
+        if(phone.getImage().equals("")) modelErr.addErr("imageErr");
+        Phone secondPhoneToCheck = phoneRepository.findFirstByImage(phone.getImage());
+        if(secondPhoneToCheck !=null) modelErr.addErr("imageErr");
 
+        checkBrandPriceAndCeneoLink(phone, modelErr);
     }
 
     public void checkPhoneDuringEdit(Phone phone,Err modelErr){
@@ -52,6 +55,10 @@ public class PhoneService {
         if(phone.getName().equals("")) modelErr.addErr("phoneErr");
         Phone phoneToCheck = phoneRepository.findFirstByName(phone.getName());
         if(phoneToCheck!=null && phoneToCheck.getId() != phone.getId()) modelErr.addErr("phoneErr");
+        if(phone.getImage().equals("")) modelErr.addErr("imageErr");
+        Phone secondPhoneToCheck = phoneRepository.findFirstByImage(phone.getImage());
+        if(secondPhoneToCheck !=null && secondPhoneToCheck.getId() != phone.getId()) modelErr.addErr("imageErr");
+
         checkBrandPriceAndCeneoLink(phone, modelErr);
     }
 
